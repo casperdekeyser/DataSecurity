@@ -1,0 +1,1473 @@
+Starting Nmap 7.91 ( https://nmap.org ) at 2020-12-02 20:22 CET
+Nmap scan report for 20.52.131.222
+Host is up (0.11s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE  VERSION
+7/tcp    open   echo
+21/tcp   open   ftp      vsftpd 3.0.3
+| vulscan: VulDB - https://vuldb.com:
+| [68991] vsftpd 3.0.2 deny_file unknown vulnerability
+| 
+| MITRE CVE - https://cve.mitre.org:
+| [CVE-2012-2127] fs/proc/root.c in the procfs implementation in the Linux kernel before 3.2 does not properly interact with CLONE_NEWPID clone system calls, which allows remote attackers to cause a denial of service (reference leak and memory consumption) by making many connections to a daemon that uses PID namespaces to isolate clients, as demonstrated by vsftpd.
+| [CVE-2008-2375] Memory leak in a certain Red Hat deployment of vsftpd before 2.0.5 on Red Hat Enterprise Linux (RHEL) 3 and 4, when PAM is used, allows remote attackers to cause a denial of service (memory consumption) via a large number of invalid authentication attempts within the same session, a different vulnerability than CVE-2007-5962.
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| [82285] Vsftpd CVE-2004-0042 Remote Security Vulnerability
+| [72451] vsftpd CVE-2015-1419 Security Bypass Vulnerability
+| [51013] vsftpd '__tzfile_read()' Function Heap Based Buffer Overflow Vulnerability
+| [48539] vsftpd Compromised Source Packages Backdoor Vulnerability
+| [46617] vsftpd FTP Server 'ls.c' Remote Denial of Service Vulnerability
+| [41443] Vsftpd Webmin Module Multiple Unspecified Vulnerabilities
+| [30364] vsftpd FTP Server Pluggable Authentication Module (PAM) Remote Denial of Service Vulnerability
+| [29322] vsftpd FTP Server 'deny_file' Option Remote Denial of Service Vulnerability
+| [10394] Vsftpd Listener Denial of Service Vulnerability
+| [7253] Red Hat Linux 9 vsftpd Compiling Error Weakness
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| [68366] vsftpd package backdoor
+| [65873] vsftpd vsf_filename_passes_filter denial of service
+| [55148] VSFTPD-WEBMIN-MODULE unknown unspecified
+| [43685] vsftpd authentication attempts denial of service
+| [42593] vsftpd deny_file denial of service
+| [16222] vsftpd connection denial of service
+| [14844] vsftpd message allows attacker to obtain username
+| [11729] Red Hat Linux vsftpd FTP daemon tcp_wrapper could allow an attacker to gain access to server
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| [17491] VSFTPD 2.3.4 - Backdoor Command Execution
+| [16270] vsftpd 2.3.2 - Denial of Service Vulnerability
+| [5814] vsftpd 2.0.5 (CWD) Remote Memory Consumption Exploit (post auth)
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| [881289] CentOS Update for vsftpd CESA-2011:0337 centos5 x86_64
+| [880533] CentOS Update for vsftpd CESA-2011:0337 centos5 i386
+| [880479] CentOS Update for vsftpd CESA-2011:0337 centos4 i386
+| [880293] CentOS Update for vsftpd CESA-2008:0579 centos3 i386
+| [880025] CentOS Update for vsftpd CESA-2008:0579 centos3 x86_64
+| [870407] RedHat Update for vsftpd RHSA-2011:0337-01
+| [870152] RedHat Update for vsftpd RHSA-2008:0680-01
+| [870114] RedHat Update for vsftpd RHSA-2008:0295-01
+| [870032] RedHat Update for vsftpd RHSA-2008:0579-01
+| [862926] Fedora Update for vsftpd FEDORA-2011-2615
+| [862925] Fedora Update for vsftpd FEDORA-2011-2590
+| [860821] Fedora Update for vsftpd FEDORA-2008-4347
+| [860676] Fedora Update for vsftpd FEDORA-2008-4373
+| [860005] Fedora Update for vsftpd FEDORA-2008-4362
+| [840831] Ubuntu Update for vsftpd USN-1288-1
+| [840623] Ubuntu Update for vsftpd vulnerability USN-1098-1
+| [831351] Mandriva Update for vsftpd MDVSA-2011:049 (vsftpd)
+| [103362] vsftpd '__tzfile_read()' Function Heap Based Buffer Overflow Vulnerability
+| [103185] vsftpd Compromised Source Packages Backdoor Vulnerability
+| [103101] vsftpd FTP Server 'ls.c' Remote Denial of Service Vulnerability
+| [71966] Slackware Advisory SSA:2012-041-05 vsftpd 
+| [70770] Gentoo Security Advisory GLSA 201110-07 (vsftpd)
+| [70399] Debian Security Advisory DSA 2305-1 (vsftpd)
+| [65857] SLES10: Security update for vsftpd
+| [65225] SLES9: Security update for vsftpd
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| [1025186] vsftpd vsf_filename_passes_filter() Bug Lets Remote Authenticated Users Deny Service
+| [1020546] vsftpd Memory Leak When Invalid Authentication Attempts Occur Lets Remote Authenticated Users Deny Service
+| [1020079] vsftpd Memory Leak in 'deny_file' Option Lets Remote Authenticated Users Deny Service
+| [1008628] vsftpd Discloses Whether Usernames are Valid or Not
+| 
+| OSVDB - http://www.osvdb.org:
+| [73573] vsftpd on vsftpd.beasts.org Trojaned Distribution
+| [73340] vsftpd ls.c vsf_filename_passes_filter STAT Command glob Expression Remote DoS
+| [61362] Vsftpd Webmin Module Unspecified Issues
+| [46930] Red Hat Linux vsftpd w/ PAM Memory Exhaustion Remote DoS
+| [45626] vsftpd deny_file Option Crafted FTP Data Remote Memory Exhaustion DoS
+| [36515] BlockHosts sshd/vsftpd hosts.allow Arbitrary Deny Entry Manipulation
+| [28610] vsftpd SIGURG Handler Unspecified Issue
+| [28609] vsftpd tunable_chroot_local_user Filesystem Root Access
+| [6861] vsftpd Login Error Message Username Enumeration
+| [6306] vsftpd Connection Handling DoS
+| [4564] vsftpd on Red Hat Linux Restricted Access Failure
+|_
+22/tcp   open   ssh      OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| vulscan: VulDB - https://vuldb.com:
+| [130671] gsi-openssh-server 7.9p1 on Fedora /etc/gsissh/sshd_config weak authentication
+| [130371] OpenSSH 7.9 scp Man-in-the-Middle directory traversal
+| [130370] OpenSSH 7.9 Man-in-the-Middle spoofing
+| [130369] OpenSSH 7.9 Encoding progressmeter.c refresh_progress_meter() spoofing
+| [129007] OpenSSH 7.9 scp Client scp.c Filename privilege escalation
+| [123343] OpenSSH up to 7.8 GSS2 auth-gss2.c information disclosure
+| [123011] OpenSSH up to 7.7 auth2-gss.c Request information disclosure
+| [112267] OpenSSH up to 7.3 sshd kex.c/packet.c NEWKEYS Message denial of service
+| [108627] OpenSSH up to 7.5 Readonly Mode sftp-server.c process_open unknown vulnerability
+| [94611] OpenSSH up to 7.3 Access Control privilege escalation
+| [94610] OpenSSH up to 7.3 Shared Memory Manager privilege escalation
+| [94608] OpenSSH up to 7.3 Unix-Domain Socket privilege escalation
+| [94607] OpenSSH up to 7.3 Forwarded Agent Channel privilege escalation
+| [90671] OpenSSH up to 7.2 auth-passwd.c auth_password denial of service
+| [90405] OpenSSH up to 7.2p2 sshd information disclosure
+| [90404] OpenSSH up to 7.2p2 sshd information disclosure
+| [90403] OpenSSH up to 7.2p2 sshd CPU Exhaustion denial of service
+| [89622] OpenSSH 7.2p2 Authentication Username information disclosure
+| [81320] OpenSSH up to 7.2p1 X11 Authentication Credential xauth privilege escalation
+| [80656] OpenBSD OpenSSH 7.1 X11 Forwarding privilege escalation
+| [80330] OpenSSH up to 7.1p1 packet.c ssh_packet_read_poll2 memory corruption
+| 
+| MITRE CVE - https://cve.mitre.org:
+| [CVE-1999-0661] A system is running a version of software that was replaced with a Trojan Horse at one of its distribution points, such as (1) TCP Wrappers 7.6, (2) util-linux 2.9g, (3) wuarchive ftpd (wuftpd) 2.2 and 2.1f, (4) IRC client (ircII) ircII 2.2.9, (5) OpenSSH 3.4p1, or (6) Sendmail 8.12.6.
+| [CVE-2010-4755] The (1) remote_glob function in sftp-glob.c and the (2) process_put function in sftp.c in OpenSSH 5.8 and earlier, as used in FreeBSD 7.3 and 8.1, NetBSD 5.0.2, OpenBSD 4.7, and other products, allow remote authenticated users to cause a denial of service (CPU and memory consumption) via crafted glob expressions that do not match any pathnames, as demonstrated by glob expressions in SSH_FXP_STAT requests to an sftp daemon, a different vulnerability than CVE-2010-2632.
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| [102780] OpenSSH CVE-2016-10708 Multiple Denial of Service Vulnerabilities
+| [101552] OpenSSH 'sftp-server.c' Remote Security Bypass Vulnerability
+| [94977] OpenSSH CVE-2016-10011 Local Information Disclosure Vulnerability
+| [94975] OpenSSH CVE-2016-10012 Security Bypass Vulnerability
+| [94972] OpenSSH CVE-2016-10010 Privilege Escalation Vulnerability
+| [94968] OpenSSH CVE-2016-10009 Remote Code Execution Vulnerability
+| [93776] OpenSSH 'ssh/kex.c' Denial of Service Vulnerability
+| [92212] OpenSSH CVE-2016-6515 Denial of Service Vulnerability
+| [92210] OpenSSH CBC Padding Weak Encryption Security Weakness
+| [92209] OpenSSH MAC Verification Security Bypass Vulnerability
+| [91812] OpenSSH CVE-2016-6210 User Enumeration Vulnerability
+| [90440] OpenSSH CVE-2004-1653 Remote Security Vulnerability
+| [90340] OpenSSH CVE-2004-2760 Remote Security Vulnerability
+| [89385] OpenSSH CVE-2005-2666 Local Security Vulnerability
+| [88655] OpenSSH CVE-2001-1382 Remote Security Vulnerability
+| [88513] OpenSSH CVE-2000-0999 Remote Security Vulnerability
+| [88367] OpenSSH CVE-1999-1010 Local Security Vulnerability
+| [87789] OpenSSH CVE-2003-0682 Remote Security Vulnerability
+| [86187] OpenSSH 'session.c' Local Security Bypass Vulnerability
+| [86144] OpenSSH CVE-2007-2768 Remote Security Vulnerability
+| [84427] OpenSSH CVE-2016-1908 Security Bypass Vulnerability
+| [84314] OpenSSH CVE-2016-3115 Remote Command Injection Vulnerability
+| [84185] OpenSSH CVE-2006-4925 Denial-Of-Service Vulnerability
+| [81293] OpenSSH CVE-2016-1907 Denial of Service Vulnerability
+| [80698] OpenSSH CVE-2016-0778 Heap Based Buffer Overflow Vulnerability
+| [80695] OpenSSH CVE-2016-0777 Information Disclosure Vulnerability
+| [76497] OpenSSH CVE-2015-6565 Local Security Bypass Vulnerability
+| [76317] OpenSSH PAM Support Multiple Remote Code Execution Vulnerabilities
+| [75990] OpenSSH Login Handling Security Bypass Weakness
+| [75525] OpenSSH 'x11_open_helper()' Function Security Bypass Vulnerability
+| [71420] Portable OpenSSH 'gss-serv-krb5.c' Security Bypass Vulnerability
+| [68757] OpenSSH Multiple Remote Denial of Service Vulnerabilities
+| [66459] OpenSSH Certificate Validation Security Bypass Vulnerability
+| [66355] OpenSSH 'child_set_env()' Function Security Bypass Vulnerability
+| [65674] OpenSSH 'ssh-keysign.c' Local Information Disclosure Vulnerability
+| [65230] OpenSSH 'schnorr.c' Remote Memory Corruption Vulnerability
+| [63605] OpenSSH 'sshd' Process Remote Memory Corruption Vulnerability
+| [61286] OpenSSH Remote Denial of Service Vulnerability
+| [58894] GSI-OpenSSH PAM_USER Security Bypass Vulnerability
+| [58162] OpenSSH CVE-2010-5107 Denial of Service Vulnerability
+| [54114] OpenSSH 'ssh_gssapi_parse_ename()' Function Denial of Service Vulnerability
+| [51702] Debian openssh-server Forced Command Handling Information Disclosure Vulnerability
+| [50416] Linux Kernel 'kdump' and 'mkdumprd' OpenSSH Integration Remote Information Disclosure Vulnerability
+| [49473] OpenSSH Ciphersuite Specification Information Disclosure Weakness
+| [48507] OpenSSH 'pam_thread()' Remote Buffer Overflow Vulnerability
+| [47691] Portable OpenSSH 'ssh-keysign' Local Unauthorized Access Vulnerability
+| [46155] OpenSSH Legacy Certificate Signing Information Disclosure Vulnerability
+| [45304] OpenSSH J-PAKE Security Bypass Vulnerability
+| [36552] Red Hat Enterprise Linux OpenSSH 'ChrootDirectory' Option Local Privilege Escalation Vulnerability
+| [32319] OpenSSH CBC Mode Information Disclosure Vulnerability
+| [30794] Red Hat OpenSSH Backdoor Vulnerability
+| [30339] OpenSSH 'X11UseLocalhost' X11 Forwarding Session Hijacking Vulnerability
+| [30276] Debian OpenSSH SELinux Privilege Escalation Vulnerability
+| [28531] OpenSSH ForceCommand Command Execution Weakness
+| [28444] OpenSSH X Connections Session Hijacking Vulnerability
+| [26097] OpenSSH LINUX_AUDIT_RECORD_EVENT Remote Log Injection Weakness
+| [25628] OpenSSH X11 Cookie Local Authentication Bypass Vulnerability
+| [23601] OpenSSH S/Key Remote Information Disclosure Vulnerability
+| [20956] OpenSSH Privilege Separation Key Signature Weakness
+| [20418] OpenSSH-Portable Existing Password Remote Information Disclosure Weakness
+| [20245] OpenSSH-Portable GSSAPI Authentication Abort Information Disclosure Weakness
+| [20241] Portable OpenSSH GSSAPI Remote Code Execution Vulnerability
+| [20216] OpenSSH Duplicated Block Remote Denial of Service Vulnerability
+| [16892] OpenSSH Remote PAM Denial Of Service Vulnerability
+| [14963] OpenSSH LoginGraceTime Remote Denial Of Service Vulnerability
+| [14729] OpenSSH GSSAPI Credential Disclosure Vulnerability
+| [14727] OpenSSH DynamicForward Inadvertent GatewayPorts Activation Vulnerability
+| [11781] OpenSSH-portable PAM Authentication Remote Information Disclosure Vulnerability
+| [9986] RCP, OpenSSH SCP Client File Corruption Vulnerability
+| [9040] OpenSSH PAM Conversation Memory Scrubbing Weakness
+| [8677] Multiple Portable OpenSSH PAM Vulnerabilities
+| [8628] OpenSSH Buffer Mismanagement Vulnerabilities
+| [7831] OpenSSH Reverse DNS Lookup Access Control Bypass Vulnerability
+| [7482] OpenSSH Remote Root Authentication Timing Side-Channel Weakness
+| [7467] OpenSSH-portable Enabled PAM Delay Information Disclosure Vulnerability
+| [7343] OpenSSH Authentication Execution Path Timing Information Leakage Weakness
+| [6168] OpenSSH Visible Password Vulnerability
+| [5374] OpenSSH Trojan Horse Vulnerability
+| [5093] OpenSSH Challenge-Response Buffer Overflow Vulnerabilities
+| [4560] OpenSSH Kerberos 4 TGT/AFS Token Buffer Overflow Vulnerability
+| [4241] OpenSSH Channel Code Off-By-One Vulnerability
+| [3614] OpenSSH UseLogin Environment Variable Passing Vulnerability
+| [3560] OpenSSH Kerberos Arbitrary Privilege Elevation Vulnerability
+| [3369] OpenSSH Key Based Source IP Access Control Bypass Vulnerability
+| [3345] OpenSSH SFTP Command Restriction Bypassing Vulnerability
+| [2917] OpenSSH PAM Session Evasion Vulnerability
+| [2825] OpenSSH Client X11 Forwarding Cookie Removal File Symbolic Link Vulnerability
+| [2356] OpenSSH Private Key Authentication Check Vulnerability
+| [1949] OpenSSH Client Unauthorized Remote Forwarding Vulnerability
+| [1334] OpenSSH UseLogin Vulnerability
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| [83258] GSI-OpenSSH auth-pam.c security bypass
+| [82781] OpenSSH time limit denial of service
+| [82231] OpenSSH pam_ssh_agent_auth PAM code execution
+| [74809] OpenSSH ssh_gssapi_parse_ename denial of service
+| [72756] Debian openssh-server commands information disclosure
+| [68339] OpenSSH pam_thread buffer overflow
+| [67264] OpenSSH ssh-keysign unauthorized access
+| [65910] OpenSSH remote_glob function denial of service
+| [65163] OpenSSH certificate information disclosure
+| [64387] OpenSSH J-PAKE security bypass
+| [63337] Cisco Unified Videoconferencing OpenSSH weak security
+| [46620] OpenSSH and multiple SSH Tectia products CBC mode information disclosure
+| [45202] OpenSSH signal handler denial of service
+| [44747] RHEL OpenSSH backdoor
+| [44280] OpenSSH PermitRootLogin information disclosure
+| [44279] OpenSSH sshd weak security
+| [44037] OpenSSH sshd SELinux role unauthorized access
+| [43940] OpenSSH X11 forwarding information disclosure
+| [41549] OpenSSH ForceCommand directive security bypass
+| [41438] OpenSSH sshd session hijacking
+| [40897] OpenSSH known_hosts weak security
+| [40587] OpenSSH username weak security
+| [37371] OpenSSH username data manipulation
+| [37118] RHSA update for OpenSSH privilege separation monitor authentication verification weakness not installed
+| [37112] RHSA update for OpenSSH signal handler race condition not installed
+| [37107] RHSA update for OpenSSH identical block denial of service not installed
+| [36637] OpenSSH X11 cookie privilege escalation
+| [35167] OpenSSH packet.c newkeys[mode] denial of service
+| [34490] OpenSSH OPIE information disclosure
+| [33794] OpenSSH ChallengeResponseAuthentication information disclosure
+| [32975] Apple Mac OS X OpenSSH denial of service
+| [32387] RHSA-2006:0738 updates for openssh not installed
+| [32359] RHSA-2006:0697 updates for openssh not installed
+| [32230] RHSA-2006:0298 updates for openssh not installed
+| [32132] RHSA-2006:0044 updates for openssh not installed
+| [30120] OpenSSH privilege separation monitor authentication verification weakness
+| [29255] OpenSSH GSSAPI user enumeration
+| [29254] OpenSSH signal handler race condition
+| [29158] OpenSSH identical block denial of service
+| [28147] Apple Mac OS X OpenSSH nonexistent user login denial of service
+| [25116] OpenSSH OpenPAM denial of service
+| [24305] OpenSSH SCP shell expansion command execution
+| [22665] RHSA-2005:106 updates for openssh not installed
+| [22117] OpenSSH GSSAPI allows elevated privileges
+| [22115] OpenSSH GatewayPorts security bypass
+| [20930] OpenSSH sshd.c LoginGraceTime denial of service
+| [19441] Sun Solaris OpenSSH LDAP (1) client authentication denial of service
+| [17213] OpenSSH allows port bouncing attacks
+| [16323] OpenSSH scp file overwrite
+| [13797] OpenSSH PAM information leak
+| [13271] OpenSSH could allow an attacker to corrupt the PAM conversion stack
+| [13264] OpenSSH PAM code could allow an attacker to gain access
+| [13215] OpenSSH buffer management errors could allow an attacker to execute code
+| [13214] OpenSSH memory vulnerabilities
+| [13191] OpenSSH large packet buffer overflow
+| [12196] OpenSSH could allow an attacker to bypass login restrictions
+| [11970] OpenSSH could allow an attacker to obtain valid administrative account
+| [11902] OpenSSH PAM support enabled information leak
+| [9803] OpenSSH &quot
+| [9763] OpenSSH downloaded from the OpenBSD FTP site or OpenBSD FTP mirror sites could contain a Trojan Horse
+| [9307] OpenSSH is running on the system
+| [9169] OpenSSH &quot
+| [8896] OpenSSH Kerberos 4 TGT/AFS buffer overflow
+| [8697] FreeBSD libutil in OpenSSH fails to drop privileges prior to using the login class capability database
+| [8383] OpenSSH off-by-one error in channel code
+| [7647] OpenSSH UseLogin option arbitrary code execution
+| [7634] OpenSSH using sftp and restricted keypairs could allow an attacker to bypass restrictions
+| [7598] OpenSSH with Kerberos allows attacker to gain elevated privileges
+| [7179] OpenSSH source IP access control bypass
+| [6757] OpenSSH &quot
+| [6676] OpenSSH X11 forwarding symlink attack could allow deletion of arbitrary files
+| [6084] OpenSSH 2.3.1 allows remote users to bypass authentication
+| [5517] OpenSSH allows unauthorized access to resources
+| [4646] OpenSSH UseLogin option allows remote users to execute commands as root
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| [21579] OpenSSH 3.x Challenge-Response Buffer Overflow Vulnerabilities (2)
+| [21578] OpenSSH 3.x Challenge-Response Buffer Overflow Vulnerabilities (1)
+| [21402] OpenSSH 2.x/3.x Kerberos 4 TGT/AFS Token Buffer Overflow Vulnerability
+| [21314] OpenSSH 2.x/3.0.1/3.0.2 Channel Code Off-By-One Vulnerability
+| [20253] OpenSSH 1.2 scp File Create/Overwrite Vulnerability
+| [17462] FreeBSD OpenSSH 3.5p1 - Remote Root Exploit
+| [14866] Novell Netware 6.5 - OpenSSH Remote Stack Overflow
+| [6094] Debian OpenSSH Remote SELinux Privilege Elevation Exploit (auth)
+| [3303] Portable OpenSSH <= 3.6.1p-PAM / 4.1-SUSE Timing Attack Exploit
+| [2444] OpenSSH <= 4.3 p1 (Duplicated Block) Remote Denial of Service Exploit
+| [1572] Dropbear / OpenSSH Server (MAX_UNAUTH_CLIENTS) Denial of Service
+| [258] glibc-2.2 and openssh-2.3.0p1 exploits glibc => 2.1.9x
+| [26] OpenSSH/PAM <= 3.6.1p1 Remote Users Ident (gossh.sh)
+| [25] OpenSSH/PAM <= 3.6.1p1 Remote Users Discovery Tool
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| [902488] OpenSSH 'sshd' GSSAPI Credential Disclosure Vulnerability
+| [900179] OpenSSH CBC Mode Information Disclosure Vulnerability
+| [881183] CentOS Update for openssh CESA-2012:0884 centos6 
+| [880802] CentOS Update for openssh CESA-2009:1287 centos5 i386
+| [880746] CentOS Update for openssh CESA-2009:1470 centos5 i386
+| [870763] RedHat Update for openssh RHSA-2012:0884-04
+| [870129] RedHat Update for openssh RHSA-2008:0855-01
+| [861813] Fedora Update for openssh FEDORA-2010-5429
+| [861319] Fedora Update for openssh FEDORA-2007-395
+| [861170] Fedora Update for openssh FEDORA-2007-394
+| [861012] Fedora Update for openssh FEDORA-2007-715
+| [840345] Ubuntu Update for openssh vulnerability USN-597-1
+| [840300] Ubuntu Update for openssh update USN-612-5
+| [840271] Ubuntu Update for openssh vulnerability USN-612-2
+| [840268] Ubuntu Update for openssh update USN-612-7
+| [840259] Ubuntu Update for openssh vulnerabilities USN-649-1
+| [840214] Ubuntu Update for openssh vulnerability USN-566-1
+| [831074] Mandriva Update for openssh MDVA-2010:162 (openssh)
+| [830929] Mandriva Update for openssh MDVA-2010:090 (openssh)
+| [830807] Mandriva Update for openssh MDVA-2010:026 (openssh)
+| [830603] Mandriva Update for openssh MDVSA-2008:098 (openssh)
+| [830523] Mandriva Update for openssh MDVSA-2008:078 (openssh)
+| [830317] Mandriva Update for openssh-askpass-qt MDKA-2007:127 (openssh-askpass-qt)
+| [830191] Mandriva Update for openssh MDKSA-2007:236 (openssh)
+| [802407] OpenSSH 'sshd' Challenge Response Authentication Buffer Overflow Vulnerability
+| [103503] openssh-server Forced Command Handling Information Disclosure Vulnerability
+| [103247] OpenSSH Ciphersuite Specification Information Disclosure Weakness
+| [103064] OpenSSH Legacy Certificate Signing Information Disclosure Vulnerability
+| [100584] OpenSSH X Connections Session Hijacking Vulnerability
+| [100153] OpenSSH CBC Mode Information Disclosure Vulnerability
+| [66170] CentOS Security Advisory CESA-2009:1470 (openssh)
+| [65987] SLES10: Security update for OpenSSH
+| [65819] SLES10: Security update for OpenSSH
+| [65514] SLES9: Security update for OpenSSH
+| [65513] SLES9: Security update for OpenSSH
+| [65334] SLES9: Security update for OpenSSH
+| [65248] SLES9: Security update for OpenSSH
+| [65218] SLES9: Security update for OpenSSH
+| [65169] SLES9: Security update for openssh,openssh-askpass
+| [65126] SLES9: Security update for OpenSSH
+| [65019] SLES9: Security update for OpenSSH
+| [65015] SLES9: Security update for OpenSSH
+| [64931] CentOS Security Advisory CESA-2009:1287 (openssh)
+| [61639] Debian Security Advisory DSA 1638-1 (openssh)
+| [61030] Debian Security Advisory DSA 1576-2 (openssh)
+| [61029] Debian Security Advisory DSA 1576-1 (openssh)
+| [60840] FreeBSD Security Advisory (FreeBSD-SA-08:05.openssh.asc)
+| [60803] Gentoo Security Advisory GLSA 200804-03 (openssh)
+| [60667] Slackware Advisory SSA:2008-095-01 openssh 
+| [59014] Slackware Advisory SSA:2007-255-01 openssh 
+| [58741] Gentoo Security Advisory GLSA 200711-02 (openssh)
+| [57919] Gentoo Security Advisory GLSA 200611-06 (openssh)
+| [57895] Gentoo Security Advisory GLSA 200609-17 (openssh)
+| [57585] Debian Security Advisory DSA 1212-1 (openssh (1:3.8.1p1-8.sarge.6))
+| [57492] Slackware Advisory SSA:2006-272-02 openssh 
+| [57483] Debian Security Advisory DSA 1189-1 (openssh-krb5)
+| [57476] FreeBSD Security Advisory (FreeBSD-SA-06:22.openssh.asc)
+| [57470] FreeBSD Ports: openssh
+| [56352] FreeBSD Security Advisory (FreeBSD-SA-06:09.openssh.asc)
+| [56330] Gentoo Security Advisory GLSA 200602-11 (OpenSSH)
+| [56294] Slackware Advisory SSA:2006-045-06 openssh 
+| [53964] Slackware Advisory SSA:2003-266-01 New OpenSSH packages 
+| [53885] Slackware Advisory SSA:2003-259-01 OpenSSH Security Advisory 
+| [53884] Slackware Advisory SSA:2003-260-01 OpenSSH updated again 
+| [53788] Debian Security Advisory DSA 025-1 (openssh)
+| [52638] FreeBSD Security Advisory (FreeBSD-SA-03:15.openssh.asc)
+| [52635] FreeBSD Security Advisory (FreeBSD-SA-03:12.openssh.asc)
+| [11343] OpenSSH Client Unauthorized Remote Forwarding
+| [10954] OpenSSH AFS/Kerberos ticket/token passing
+| [10883] OpenSSH Channel Code Off by 1
+| [10823] OpenSSH UseLogin Environment Variables
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| [1028187] OpenSSH pam_ssh_agent_auth Module on Red Hat Enterprise Linux Lets Remote Users Execute Arbitrary Code
+| [1026593] OpenSSH Lets Remote Authenticated Users Obtain Potentially Sensitive Information
+| [1025739] OpenSSH on FreeBSD Has Buffer Overflow in pam_thread() That Lets Remote Users Execute Arbitrary Code
+| [1025482] OpenSSH ssh-keysign Utility Lets Local Users Gain Elevated Privileges
+| [1025028] OpenSSH Legacy Certificates May Disclose Stack Contents to Remote Users
+| [1022967] OpenSSH on Red Hat Enterprise Linux Lets Remote Authenticated Users Gain Elevated Privileges
+| [1021235] OpenSSH CBC Mode Error Handling May Let Certain Remote Users Obtain Plain Text in Certain Cases
+| [1020891] OpenSSH on Debian Lets Remote Users Prevent Logins
+| [1020730] OpenSSH for Red Hat Enterprise Linux Packages May Have Been Compromised
+| [1020537] OpenSSH on HP-UX Lets Local Users Hijack X11 Sessions
+| [1019733] OpenSSH Unsafe Default Configuration May Let Local Users Execute Arbitrary Commands
+| [1019707] OpenSSH Lets Local Users Hijack Forwarded X Sessions in Certain Cases
+| [1017756] Apple OpenSSH Key Generation Process Lets Remote Users Deny Service
+| [1017183] OpenSSH Privilege Separation Monitor Validation Error May Cause the Monitor to Fail to Properly Control the Unprivileged Process
+| [1016940] OpenSSH Race Condition in Signal Handler Lets Remote Users Deny Service and May Potentially Permit Code Execution
+| [1016939] OpenSSH GSSAPI Authentication Abort Error Lets Remote Users Determine Valid Usernames
+| [1016931] OpenSSH SSH v1 CRC Attack Detection Implementation Lets Remote Users Deny Service
+| [1016672] OpenSSH on Mac OS X Lets Remote Users Deny Service
+| [1015706] OpenSSH Interaction With OpenPAM Lets Remote Users Deny Service
+| [1015540] OpenSSH scp Double Shell Character Expansion During Local-to-Local Copying May Let Local Users Gain Elevated Privileges in Certain Cases
+| [1014845] OpenSSH May Unexpectedly Activate GatewayPorts and Also May Disclose GSSAPI Credentials in Certain Cases
+| [1011193] OpenSSH scp Directory Traversal Flaw Lets Remote SSH Servers Overwrite Files in Certain Cases
+| [1011143] OpenSSH Default Configuration May Be Unsafe When Used With Anonymous SSH Services
+| [1007791] Portable OpenSSH PAM free() Bug May Let Remote Users Execute Root Code
+| [1007716] OpenSSH buffer_append_space() and Other Buffer Management Errors May Let Remote Users Execute Arbitrary Code
+| [1006926] OpenSSH Host Access Restrictions Can Be Bypassed By Remote Users
+| [1006688] OpenSSH Timing Flaw With Pluggable Authentication Modules Can Disclose Valid User Account Names to Remote Users
+| [1004818] OpenSSH's Secure Shell (SSH) Implementation Weakness May Disclose User Passwords to Remote Users During Man-in-the-Middle Attacks
+| [1004616] OpenSSH Integer Overflow and Buffer Overflow May Allow Remote Users to Gain Root Access to the System
+| [1004391] OpenSSH 'BSD_AUTH' Access Control Bug May Allow Unauthorized Remote Users to Authenticated to the System
+| [1004115] OpenSSH Buffer Overflow in Kerberos Ticket and AFS Token Processing Lets Local Users Execute Arbitrary Code With Root Level Permissions
+| [1003758] OpenSSH Off-by-one 'Channels' Bug May Let Authorized Remote Users Execute Arbitrary Code with Root Privileges
+| [1002895] OpenSSH UseLogin Environment Variable Bug Lets Local Users Execute Commands and Gain Root Access
+| [1002748] OpenSSH 3.0 Denial of Service Condition May Allow Remote Users to Crash the sshd Daemon and KerberosV Configuration Error May Allow Remote Users to Partially Authenticate When Authentication Should Not Be Permitted
+| [1002734] OpenSSH's S/Key Implementation Information Disclosure Flaw Provides Remote Users With Information About Valid User Accounts
+| [1002455] OpenSSH May Fail to Properly Restrict IP Addresses in Certain Configurations
+| [1002432] OpenSSH's Sftp-server Subsystem Lets Authorized Remote Users with Restricted Keypairs Obtain Additional Access on the Server
+| [1001683] OpenSSH Allows Authorized Users to Delete Other User Files Named Cookies
+| 
+| OSVDB - http://www.osvdb.org:
+| [92034] GSI-OpenSSH auth-pam.c Memory Management Authentication Bypass
+| [90474] Red Hat / Fedora PAM Module for OpenSSH Incorrect error() Function Calling Local Privilege Escalation
+| [90007] OpenSSH logingracetime / maxstartup Threshold Connection Saturation Remote DoS
+| [81500] OpenSSH gss-serv.c ssh_gssapi_parse_ename Function Field Length Value Parsing Remote DoS
+| [78706] OpenSSH auth-options.c sshd auth_parse_options Function authorized_keys Command Option Debug Message Information Disclosure
+| [75753] OpenSSH PAM Module Aborted Conversation Local Information Disclosure
+| [75249] OpenSSH sftp-glob.c remote_glob Function Glob Expression Parsing Remote DoS
+| [75248] OpenSSH sftp.c process_put Function Glob Expression Parsing Remote DoS
+| [72183] Portable OpenSSH ssh-keysign ssh-rand-helper Utility File Descriptor Leak Local Information Disclosure
+| [70873] OpenSSH Legacy Certificates Stack Memory Disclosure
+| [69658] OpenSSH J-PAKE Public Parameter Validation Shared Secret Authentication Bypass
+| [67743] Novell NetWare OpenSSH SSHD.NLM Absolute Path Handling Remote Overflow
+| [59353] OpenSSH sshd Local TCP Redirection Connection Masking Weakness
+| [58495] OpenSSH sshd ChrootDirectory Feature SetUID Hard Link Local Privilege Escalation
+| [56921] OpenSSH Unspecified Remote Compromise
+| [53021] OpenSSH on ftp.openbsd.org Trojaned Distribution
+| [50036] OpenSSH CBC Mode Chosen Ciphertext 32-bit Chunk Plaintext Context Disclosure
+| [49386] OpenSSH sshd TCP Connection State Remote Account Enumeration
+| [48791] OpenSSH on Debian sshd Crafted Username Arbitrary Remote SELinux Role Access
+| [47635] OpenSSH Packages on Red Hat Enterprise Linux Compromised Distribution
+| [47227] OpenSSH X11UseLocalhost X11 Forwarding Port Hijacking
+| [45873] Cisco WebNS SSHield w/ OpenSSH Crafted Large Packet Remote DoS
+| [43911] OpenSSH ~/.ssh/rc ForceCommand Bypass Arbitrary Command Execution
+| [43745] OpenSSH X11 Forwarding Local Session Hijacking
+| [43371] OpenSSH Trusted X11 Cookie Connection Policy Bypass
+| [39214] OpenSSH linux_audit_record_event Crafted Username Audit Log Injection
+| [37315] pam_usb OpenSSH Authentication Unspecified Issue
+| [34850] OpenSSH on Mac OS X Key Generation Remote Connection DoS
+| [34601] OPIE w/ OpenSSH Account Enumeration
+| [34600] OpenSSH S/KEY Authentication Account Enumeration
+| [32721] OpenSSH Username Password Complexity Account Enumeration
+| [30232] OpenSSH Privilege Separation Monitor Weakness
+| [29494] OpenSSH packet.c Invalid Protocol Sequence Remote DoS
+| [29266] OpenSSH GSSAPI Authentication Abort Username Enumeration
+| [29264] OpenSSH Signal Handler Pre-authentication Race Condition Code Execution
+| [29152] OpenSSH Identical Block Packet DoS
+| [27745] Apple Mac OS X OpenSSH Nonexistent Account Login Enumeration DoS
+| [23797] OpenSSH with OpenPAM Connection Saturation Forked Process Saturation DoS
+| [22692] OpenSSH scp Command Line Filename Processing Command Injection
+| [20216] OpenSSH with KerberosV Remote Authentication Bypass
+| [19142] OpenSSH Multiple X11 Channel Forwarding Leaks
+| [19141] OpenSSH GSSAPIAuthentication Credential Escalation
+| [18236] OpenSSH no pty Command Execution Local PAM Restriction Bypass
+| [16567] OpenSSH Privilege Separation LoginGraceTime DoS
+| [16039] Solaris 108994 Series Patch OpenSSH LDAP Client Authentication DoS
+| [9562] OpenSSH Default Configuration Anon SSH Service Port Bounce Weakness
+| [9550] OpenSSH scp Traversal Arbitrary File Overwrite
+| [6601] OpenSSH *realloc() Unspecified Memory Errors
+| [6245] OpenSSH SKEY/BSD_AUTH Challenge-Response Remote Overflow
+| [6073] OpenSSH on FreeBSD libutil Arbitrary File Read
+| [6072] OpenSSH PAM Conversation Function Stack Modification
+| [6071] OpenSSH SSHv1 PAM Challenge-Response Authentication Privilege Escalation
+| [5536] OpenSSH sftp-server Restricted Keypair Restriction Bypass
+| [5408] OpenSSH echo simulation Information Disclosure
+| [5113] OpenSSH NIS YP Netgroups Authentication Bypass
+| [4536] OpenSSH Portable AIX linker Privilege Escalation
+| [3938] OpenSSL and OpenSSH /dev/random Check Failure
+| [3456] OpenSSH buffer_append_space() Heap Corruption
+| [2557] OpenSSH Multiple Buffer Management Multiple Overflows
+| [2140] OpenSSH w/ PAM Username Validity Timing Attack
+| [2112] OpenSSH Reverse DNS Lookup Bypass
+| [2109] OpenSSH sshd Root Login Timing Side-Channel Weakness
+| [1853] OpenSSH Symbolic Link 'cookies' File Removal
+| [839] OpenSSH PAMAuthenticationViaKbdInt Challenge-Response Remote Overflow
+| [781] OpenSSH Kerberos TGT/AFS Token Passing Remote Overflow
+| [730] OpenSSH Channel Code Off by One Remote Privilege Escalation
+| [688] OpenSSH UseLogin Environment Variable Local Command Execution
+| [642] OpenSSH Multiple Key Type ACL Bypass
+| [504] OpenSSH SSHv2 Public Key Authentication Bypass
+| [341] OpenSSH UseLogin Local Privilege Escalation
+|_
+23/tcp   open   telnet?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, LDAPBindReq, NULL, RPCCheck, SMBProgNeg, X11Probe, tn3270: 
+|     Debian GNU/Linux 7
+|     Login:
+|   FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, LDAPSearchReq, RTSPRequest: 
+|     Debian GNU/Linux 7
+|     Login: 
+|     Password: 
+|     invalid login
+|     Password:
+|   Help, Kerberos, LPDString, SSLSessionReq, TerminalServerCookie: 
+|     Debian GNU/Linux 7
+|     Login: 
+|     Password:
+|   SIPOptions: 
+|     Debian GNU/Linux 7
+|     Login: 
+|     Password: 
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|     Password:
+|     invalid login
+|_    Password:
+2200/tcp open   ssh      OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| vulscan: VulDB - https://vuldb.com:
+| [130671] gsi-openssh-server 7.9p1 on Fedora /etc/gsissh/sshd_config weak authentication
+| [130371] OpenSSH 7.9 scp Man-in-the-Middle directory traversal
+| [130370] OpenSSH 7.9 Man-in-the-Middle spoofing
+| [130369] OpenSSH 7.9 Encoding progressmeter.c refresh_progress_meter() spoofing
+| [129007] OpenSSH 7.9 scp Client scp.c Filename privilege escalation
+| [123343] OpenSSH up to 7.8 GSS2 auth-gss2.c information disclosure
+| [123011] OpenSSH up to 7.7 auth2-gss.c Request information disclosure
+| [112267] OpenSSH up to 7.3 sshd kex.c/packet.c NEWKEYS Message denial of service
+| [108627] OpenSSH up to 7.5 Readonly Mode sftp-server.c process_open unknown vulnerability
+| [94611] OpenSSH up to 7.3 Access Control privilege escalation
+| [94610] OpenSSH up to 7.3 Shared Memory Manager privilege escalation
+| [94608] OpenSSH up to 7.3 Unix-Domain Socket privilege escalation
+| [94607] OpenSSH up to 7.3 Forwarded Agent Channel privilege escalation
+| [90671] OpenSSH up to 7.2 auth-passwd.c auth_password denial of service
+| [90405] OpenSSH up to 7.2p2 sshd information disclosure
+| [90404] OpenSSH up to 7.2p2 sshd information disclosure
+| [90403] OpenSSH up to 7.2p2 sshd CPU Exhaustion denial of service
+| [89622] OpenSSH 7.2p2 Authentication Username information disclosure
+| [81320] OpenSSH up to 7.2p1 X11 Authentication Credential xauth privilege escalation
+| [80656] OpenBSD OpenSSH 7.1 X11 Forwarding privilege escalation
+| [80330] OpenSSH up to 7.1p1 packet.c ssh_packet_read_poll2 memory corruption
+| 
+| MITRE CVE - https://cve.mitre.org:
+| [CVE-1999-0661] A system is running a version of software that was replaced with a Trojan Horse at one of its distribution points, such as (1) TCP Wrappers 7.6, (2) util-linux 2.9g, (3) wuarchive ftpd (wuftpd) 2.2 and 2.1f, (4) IRC client (ircII) ircII 2.2.9, (5) OpenSSH 3.4p1, or (6) Sendmail 8.12.6.
+| [CVE-2010-4755] The (1) remote_glob function in sftp-glob.c and the (2) process_put function in sftp.c in OpenSSH 5.8 and earlier, as used in FreeBSD 7.3 and 8.1, NetBSD 5.0.2, OpenBSD 4.7, and other products, allow remote authenticated users to cause a denial of service (CPU and memory consumption) via crafted glob expressions that do not match any pathnames, as demonstrated by glob expressions in SSH_FXP_STAT requests to an sftp daemon, a different vulnerability than CVE-2010-2632.
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| [102780] OpenSSH CVE-2016-10708 Multiple Denial of Service Vulnerabilities
+| [101552] OpenSSH 'sftp-server.c' Remote Security Bypass Vulnerability
+| [94977] OpenSSH CVE-2016-10011 Local Information Disclosure Vulnerability
+| [94975] OpenSSH CVE-2016-10012 Security Bypass Vulnerability
+| [94972] OpenSSH CVE-2016-10010 Privilege Escalation Vulnerability
+| [94968] OpenSSH CVE-2016-10009 Remote Code Execution Vulnerability
+| [93776] OpenSSH 'ssh/kex.c' Denial of Service Vulnerability
+| [92212] OpenSSH CVE-2016-6515 Denial of Service Vulnerability
+| [92210] OpenSSH CBC Padding Weak Encryption Security Weakness
+| [92209] OpenSSH MAC Verification Security Bypass Vulnerability
+| [91812] OpenSSH CVE-2016-6210 User Enumeration Vulnerability
+| [90440] OpenSSH CVE-2004-1653 Remote Security Vulnerability
+| [90340] OpenSSH CVE-2004-2760 Remote Security Vulnerability
+| [89385] OpenSSH CVE-2005-2666 Local Security Vulnerability
+| [88655] OpenSSH CVE-2001-1382 Remote Security Vulnerability
+| [88513] OpenSSH CVE-2000-0999 Remote Security Vulnerability
+| [88367] OpenSSH CVE-1999-1010 Local Security Vulnerability
+| [87789] OpenSSH CVE-2003-0682 Remote Security Vulnerability
+| [86187] OpenSSH 'session.c' Local Security Bypass Vulnerability
+| [86144] OpenSSH CVE-2007-2768 Remote Security Vulnerability
+| [84427] OpenSSH CVE-2016-1908 Security Bypass Vulnerability
+| [84314] OpenSSH CVE-2016-3115 Remote Command Injection Vulnerability
+| [84185] OpenSSH CVE-2006-4925 Denial-Of-Service Vulnerability
+| [81293] OpenSSH CVE-2016-1907 Denial of Service Vulnerability
+| [80698] OpenSSH CVE-2016-0778 Heap Based Buffer Overflow Vulnerability
+| [80695] OpenSSH CVE-2016-0777 Information Disclosure Vulnerability
+| [76497] OpenSSH CVE-2015-6565 Local Security Bypass Vulnerability
+| [76317] OpenSSH PAM Support Multiple Remote Code Execution Vulnerabilities
+| [75990] OpenSSH Login Handling Security Bypass Weakness
+| [75525] OpenSSH 'x11_open_helper()' Function Security Bypass Vulnerability
+| [71420] Portable OpenSSH 'gss-serv-krb5.c' Security Bypass Vulnerability
+| [68757] OpenSSH Multiple Remote Denial of Service Vulnerabilities
+| [66459] OpenSSH Certificate Validation Security Bypass Vulnerability
+| [66355] OpenSSH 'child_set_env()' Function Security Bypass Vulnerability
+| [65674] OpenSSH 'ssh-keysign.c' Local Information Disclosure Vulnerability
+| [65230] OpenSSH 'schnorr.c' Remote Memory Corruption Vulnerability
+| [63605] OpenSSH 'sshd' Process Remote Memory Corruption Vulnerability
+| [61286] OpenSSH Remote Denial of Service Vulnerability
+| [58894] GSI-OpenSSH PAM_USER Security Bypass Vulnerability
+| [58162] OpenSSH CVE-2010-5107 Denial of Service Vulnerability
+| [54114] OpenSSH 'ssh_gssapi_parse_ename()' Function Denial of Service Vulnerability
+| [51702] Debian openssh-server Forced Command Handling Information Disclosure Vulnerability
+| [50416] Linux Kernel 'kdump' and 'mkdumprd' OpenSSH Integration Remote Information Disclosure Vulnerability
+| [49473] OpenSSH Ciphersuite Specification Information Disclosure Weakness
+| [48507] OpenSSH 'pam_thread()' Remote Buffer Overflow Vulnerability
+| [47691] Portable OpenSSH 'ssh-keysign' Local Unauthorized Access Vulnerability
+| [46155] OpenSSH Legacy Certificate Signing Information Disclosure Vulnerability
+| [45304] OpenSSH J-PAKE Security Bypass Vulnerability
+| [36552] Red Hat Enterprise Linux OpenSSH 'ChrootDirectory' Option Local Privilege Escalation Vulnerability
+| [32319] OpenSSH CBC Mode Information Disclosure Vulnerability
+| [30794] Red Hat OpenSSH Backdoor Vulnerability
+| [30339] OpenSSH 'X11UseLocalhost' X11 Forwarding Session Hijacking Vulnerability
+| [30276] Debian OpenSSH SELinux Privilege Escalation Vulnerability
+| [28531] OpenSSH ForceCommand Command Execution Weakness
+| [28444] OpenSSH X Connections Session Hijacking Vulnerability
+| [26097] OpenSSH LINUX_AUDIT_RECORD_EVENT Remote Log Injection Weakness
+| [25628] OpenSSH X11 Cookie Local Authentication Bypass Vulnerability
+| [23601] OpenSSH S/Key Remote Information Disclosure Vulnerability
+| [20956] OpenSSH Privilege Separation Key Signature Weakness
+| [20418] OpenSSH-Portable Existing Password Remote Information Disclosure Weakness
+| [20245] OpenSSH-Portable GSSAPI Authentication Abort Information Disclosure Weakness
+| [20241] Portable OpenSSH GSSAPI Remote Code Execution Vulnerability
+| [20216] OpenSSH Duplicated Block Remote Denial of Service Vulnerability
+| [16892] OpenSSH Remote PAM Denial Of Service Vulnerability
+| [14963] OpenSSH LoginGraceTime Remote Denial Of Service Vulnerability
+| [14729] OpenSSH GSSAPI Credential Disclosure Vulnerability
+| [14727] OpenSSH DynamicForward Inadvertent GatewayPorts Activation Vulnerability
+| [11781] OpenSSH-portable PAM Authentication Remote Information Disclosure Vulnerability
+| [9986] RCP, OpenSSH SCP Client File Corruption Vulnerability
+| [9040] OpenSSH PAM Conversation Memory Scrubbing Weakness
+| [8677] Multiple Portable OpenSSH PAM Vulnerabilities
+| [8628] OpenSSH Buffer Mismanagement Vulnerabilities
+| [7831] OpenSSH Reverse DNS Lookup Access Control Bypass Vulnerability
+| [7482] OpenSSH Remote Root Authentication Timing Side-Channel Weakness
+| [7467] OpenSSH-portable Enabled PAM Delay Information Disclosure Vulnerability
+| [7343] OpenSSH Authentication Execution Path Timing Information Leakage Weakness
+| [6168] OpenSSH Visible Password Vulnerability
+| [5374] OpenSSH Trojan Horse Vulnerability
+| [5093] OpenSSH Challenge-Response Buffer Overflow Vulnerabilities
+| [4560] OpenSSH Kerberos 4 TGT/AFS Token Buffer Overflow Vulnerability
+| [4241] OpenSSH Channel Code Off-By-One Vulnerability
+| [3614] OpenSSH UseLogin Environment Variable Passing Vulnerability
+| [3560] OpenSSH Kerberos Arbitrary Privilege Elevation Vulnerability
+| [3369] OpenSSH Key Based Source IP Access Control Bypass Vulnerability
+| [3345] OpenSSH SFTP Command Restriction Bypassing Vulnerability
+| [2917] OpenSSH PAM Session Evasion Vulnerability
+| [2825] OpenSSH Client X11 Forwarding Cookie Removal File Symbolic Link Vulnerability
+| [2356] OpenSSH Private Key Authentication Check Vulnerability
+| [1949] OpenSSH Client Unauthorized Remote Forwarding Vulnerability
+| [1334] OpenSSH UseLogin Vulnerability
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| [83258] GSI-OpenSSH auth-pam.c security bypass
+| [82781] OpenSSH time limit denial of service
+| [82231] OpenSSH pam_ssh_agent_auth PAM code execution
+| [74809] OpenSSH ssh_gssapi_parse_ename denial of service
+| [72756] Debian openssh-server commands information disclosure
+| [68339] OpenSSH pam_thread buffer overflow
+| [67264] OpenSSH ssh-keysign unauthorized access
+| [65910] OpenSSH remote_glob function denial of service
+| [65163] OpenSSH certificate information disclosure
+| [64387] OpenSSH J-PAKE security bypass
+| [63337] Cisco Unified Videoconferencing OpenSSH weak security
+| [46620] OpenSSH and multiple SSH Tectia products CBC mode information disclosure
+| [45202] OpenSSH signal handler denial of service
+| [44747] RHEL OpenSSH backdoor
+| [44280] OpenSSH PermitRootLogin information disclosure
+| [44279] OpenSSH sshd weak security
+| [44037] OpenSSH sshd SELinux role unauthorized access
+| [43940] OpenSSH X11 forwarding information disclosure
+| [41549] OpenSSH ForceCommand directive security bypass
+| [41438] OpenSSH sshd session hijacking
+| [40897] OpenSSH known_hosts weak security
+| [40587] OpenSSH username weak security
+| [37371] OpenSSH username data manipulation
+| [37118] RHSA update for OpenSSH privilege separation monitor authentication verification weakness not installed
+| [37112] RHSA update for OpenSSH signal handler race condition not installed
+| [37107] RHSA update for OpenSSH identical block denial of service not installed
+| [36637] OpenSSH X11 cookie privilege escalation
+| [35167] OpenSSH packet.c newkeys[mode] denial of service
+| [34490] OpenSSH OPIE information disclosure
+| [33794] OpenSSH ChallengeResponseAuthentication information disclosure
+| [32975] Apple Mac OS X OpenSSH denial of service
+| [32387] RHSA-2006:0738 updates for openssh not installed
+| [32359] RHSA-2006:0697 updates for openssh not installed
+| [32230] RHSA-2006:0298 updates for openssh not installed
+| [32132] RHSA-2006:0044 updates for openssh not installed
+| [30120] OpenSSH privilege separation monitor authentication verification weakness
+| [29255] OpenSSH GSSAPI user enumeration
+| [29254] OpenSSH signal handler race condition
+| [29158] OpenSSH identical block denial of service
+| [28147] Apple Mac OS X OpenSSH nonexistent user login denial of service
+| [25116] OpenSSH OpenPAM denial of service
+| [24305] OpenSSH SCP shell expansion command execution
+| [22665] RHSA-2005:106 updates for openssh not installed
+| [22117] OpenSSH GSSAPI allows elevated privileges
+| [22115] OpenSSH GatewayPorts security bypass
+| [20930] OpenSSH sshd.c LoginGraceTime denial of service
+| [19441] Sun Solaris OpenSSH LDAP (1) client authentication denial of service
+| [17213] OpenSSH allows port bouncing attacks
+| [16323] OpenSSH scp file overwrite
+| [13797] OpenSSH PAM information leak
+| [13271] OpenSSH could allow an attacker to corrupt the PAM conversion stack
+| [13264] OpenSSH PAM code could allow an attacker to gain access
+| [13215] OpenSSH buffer management errors could allow an attacker to execute code
+| [13214] OpenSSH memory vulnerabilities
+| [13191] OpenSSH large packet buffer overflow
+| [12196] OpenSSH could allow an attacker to bypass login restrictions
+| [11970] OpenSSH could allow an attacker to obtain valid administrative account
+| [11902] OpenSSH PAM support enabled information leak
+| [9803] OpenSSH &quot
+| [9763] OpenSSH downloaded from the OpenBSD FTP site or OpenBSD FTP mirror sites could contain a Trojan Horse
+| [9307] OpenSSH is running on the system
+| [9169] OpenSSH &quot
+| [8896] OpenSSH Kerberos 4 TGT/AFS buffer overflow
+| [8697] FreeBSD libutil in OpenSSH fails to drop privileges prior to using the login class capability database
+| [8383] OpenSSH off-by-one error in channel code
+| [7647] OpenSSH UseLogin option arbitrary code execution
+| [7634] OpenSSH using sftp and restricted keypairs could allow an attacker to bypass restrictions
+| [7598] OpenSSH with Kerberos allows attacker to gain elevated privileges
+| [7179] OpenSSH source IP access control bypass
+| [6757] OpenSSH &quot
+| [6676] OpenSSH X11 forwarding symlink attack could allow deletion of arbitrary files
+| [6084] OpenSSH 2.3.1 allows remote users to bypass authentication
+| [5517] OpenSSH allows unauthorized access to resources
+| [4646] OpenSSH UseLogin option allows remote users to execute commands as root
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| [21579] OpenSSH 3.x Challenge-Response Buffer Overflow Vulnerabilities (2)
+| [21578] OpenSSH 3.x Challenge-Response Buffer Overflow Vulnerabilities (1)
+| [21402] OpenSSH 2.x/3.x Kerberos 4 TGT/AFS Token Buffer Overflow Vulnerability
+| [21314] OpenSSH 2.x/3.0.1/3.0.2 Channel Code Off-By-One Vulnerability
+| [20253] OpenSSH 1.2 scp File Create/Overwrite Vulnerability
+| [17462] FreeBSD OpenSSH 3.5p1 - Remote Root Exploit
+| [14866] Novell Netware 6.5 - OpenSSH Remote Stack Overflow
+| [6094] Debian OpenSSH Remote SELinux Privilege Elevation Exploit (auth)
+| [3303] Portable OpenSSH <= 3.6.1p-PAM / 4.1-SUSE Timing Attack Exploit
+| [2444] OpenSSH <= 4.3 p1 (Duplicated Block) Remote Denial of Service Exploit
+| [1572] Dropbear / OpenSSH Server (MAX_UNAUTH_CLIENTS) Denial of Service
+| [258] glibc-2.2 and openssh-2.3.0p1 exploits glibc => 2.1.9x
+| [26] OpenSSH/PAM <= 3.6.1p1 Remote Users Ident (gossh.sh)
+| [25] OpenSSH/PAM <= 3.6.1p1 Remote Users Discovery Tool
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| [902488] OpenSSH 'sshd' GSSAPI Credential Disclosure Vulnerability
+| [900179] OpenSSH CBC Mode Information Disclosure Vulnerability
+| [881183] CentOS Update for openssh CESA-2012:0884 centos6 
+| [880802] CentOS Update for openssh CESA-2009:1287 centos5 i386
+| [880746] CentOS Update for openssh CESA-2009:1470 centos5 i386
+| [870763] RedHat Update for openssh RHSA-2012:0884-04
+| [870129] RedHat Update for openssh RHSA-2008:0855-01
+| [861813] Fedora Update for openssh FEDORA-2010-5429
+| [861319] Fedora Update for openssh FEDORA-2007-395
+| [861170] Fedora Update for openssh FEDORA-2007-394
+| [861012] Fedora Update for openssh FEDORA-2007-715
+| [840345] Ubuntu Update for openssh vulnerability USN-597-1
+| [840300] Ubuntu Update for openssh update USN-612-5
+| [840271] Ubuntu Update for openssh vulnerability USN-612-2
+| [840268] Ubuntu Update for openssh update USN-612-7
+| [840259] Ubuntu Update for openssh vulnerabilities USN-649-1
+| [840214] Ubuntu Update for openssh vulnerability USN-566-1
+| [831074] Mandriva Update for openssh MDVA-2010:162 (openssh)
+| [830929] Mandriva Update for openssh MDVA-2010:090 (openssh)
+| [830807] Mandriva Update for openssh MDVA-2010:026 (openssh)
+| [830603] Mandriva Update for openssh MDVSA-2008:098 (openssh)
+| [830523] Mandriva Update for openssh MDVSA-2008:078 (openssh)
+| [830317] Mandriva Update for openssh-askpass-qt MDKA-2007:127 (openssh-askpass-qt)
+| [830191] Mandriva Update for openssh MDKSA-2007:236 (openssh)
+| [802407] OpenSSH 'sshd' Challenge Response Authentication Buffer Overflow Vulnerability
+| [103503] openssh-server Forced Command Handling Information Disclosure Vulnerability
+| [103247] OpenSSH Ciphersuite Specification Information Disclosure Weakness
+| [103064] OpenSSH Legacy Certificate Signing Information Disclosure Vulnerability
+| [100584] OpenSSH X Connections Session Hijacking Vulnerability
+| [100153] OpenSSH CBC Mode Information Disclosure Vulnerability
+| [66170] CentOS Security Advisory CESA-2009:1470 (openssh)
+| [65987] SLES10: Security update for OpenSSH
+| [65819] SLES10: Security update for OpenSSH
+| [65514] SLES9: Security update for OpenSSH
+| [65513] SLES9: Security update for OpenSSH
+| [65334] SLES9: Security update for OpenSSH
+| [65248] SLES9: Security update for OpenSSH
+| [65218] SLES9: Security update for OpenSSH
+| [65169] SLES9: Security update for openssh,openssh-askpass
+| [65126] SLES9: Security update for OpenSSH
+| [65019] SLES9: Security update for OpenSSH
+| [65015] SLES9: Security update for OpenSSH
+| [64931] CentOS Security Advisory CESA-2009:1287 (openssh)
+| [61639] Debian Security Advisory DSA 1638-1 (openssh)
+| [61030] Debian Security Advisory DSA 1576-2 (openssh)
+| [61029] Debian Security Advisory DSA 1576-1 (openssh)
+| [60840] FreeBSD Security Advisory (FreeBSD-SA-08:05.openssh.asc)
+| [60803] Gentoo Security Advisory GLSA 200804-03 (openssh)
+| [60667] Slackware Advisory SSA:2008-095-01 openssh 
+| [59014] Slackware Advisory SSA:2007-255-01 openssh 
+| [58741] Gentoo Security Advisory GLSA 200711-02 (openssh)
+| [57919] Gentoo Security Advisory GLSA 200611-06 (openssh)
+| [57895] Gentoo Security Advisory GLSA 200609-17 (openssh)
+| [57585] Debian Security Advisory DSA 1212-1 (openssh (1:3.8.1p1-8.sarge.6))
+| [57492] Slackware Advisory SSA:2006-272-02 openssh 
+| [57483] Debian Security Advisory DSA 1189-1 (openssh-krb5)
+| [57476] FreeBSD Security Advisory (FreeBSD-SA-06:22.openssh.asc)
+| [57470] FreeBSD Ports: openssh
+| [56352] FreeBSD Security Advisory (FreeBSD-SA-06:09.openssh.asc)
+| [56330] Gentoo Security Advisory GLSA 200602-11 (OpenSSH)
+| [56294] Slackware Advisory SSA:2006-045-06 openssh 
+| [53964] Slackware Advisory SSA:2003-266-01 New OpenSSH packages 
+| [53885] Slackware Advisory SSA:2003-259-01 OpenSSH Security Advisory 
+| [53884] Slackware Advisory SSA:2003-260-01 OpenSSH updated again 
+| [53788] Debian Security Advisory DSA 025-1 (openssh)
+| [52638] FreeBSD Security Advisory (FreeBSD-SA-03:15.openssh.asc)
+| [52635] FreeBSD Security Advisory (FreeBSD-SA-03:12.openssh.asc)
+| [11343] OpenSSH Client Unauthorized Remote Forwarding
+| [10954] OpenSSH AFS/Kerberos ticket/token passing
+| [10883] OpenSSH Channel Code Off by 1
+| [10823] OpenSSH UseLogin Environment Variables
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| [1028187] OpenSSH pam_ssh_agent_auth Module on Red Hat Enterprise Linux Lets Remote Users Execute Arbitrary Code
+| [1026593] OpenSSH Lets Remote Authenticated Users Obtain Potentially Sensitive Information
+| [1025739] OpenSSH on FreeBSD Has Buffer Overflow in pam_thread() That Lets Remote Users Execute Arbitrary Code
+| [1025482] OpenSSH ssh-keysign Utility Lets Local Users Gain Elevated Privileges
+| [1025028] OpenSSH Legacy Certificates May Disclose Stack Contents to Remote Users
+| [1022967] OpenSSH on Red Hat Enterprise Linux Lets Remote Authenticated Users Gain Elevated Privileges
+| [1021235] OpenSSH CBC Mode Error Handling May Let Certain Remote Users Obtain Plain Text in Certain Cases
+| [1020891] OpenSSH on Debian Lets Remote Users Prevent Logins
+| [1020730] OpenSSH for Red Hat Enterprise Linux Packages May Have Been Compromised
+| [1020537] OpenSSH on HP-UX Lets Local Users Hijack X11 Sessions
+| [1019733] OpenSSH Unsafe Default Configuration May Let Local Users Execute Arbitrary Commands
+| [1019707] OpenSSH Lets Local Users Hijack Forwarded X Sessions in Certain Cases
+| [1017756] Apple OpenSSH Key Generation Process Lets Remote Users Deny Service
+| [1017183] OpenSSH Privilege Separation Monitor Validation Error May Cause the Monitor to Fail to Properly Control the Unprivileged Process
+| [1016940] OpenSSH Race Condition in Signal Handler Lets Remote Users Deny Service and May Potentially Permit Code Execution
+| [1016939] OpenSSH GSSAPI Authentication Abort Error Lets Remote Users Determine Valid Usernames
+| [1016931] OpenSSH SSH v1 CRC Attack Detection Implementation Lets Remote Users Deny Service
+| [1016672] OpenSSH on Mac OS X Lets Remote Users Deny Service
+| [1015706] OpenSSH Interaction With OpenPAM Lets Remote Users Deny Service
+| [1015540] OpenSSH scp Double Shell Character Expansion During Local-to-Local Copying May Let Local Users Gain Elevated Privileges in Certain Cases
+| [1014845] OpenSSH May Unexpectedly Activate GatewayPorts and Also May Disclose GSSAPI Credentials in Certain Cases
+| [1011193] OpenSSH scp Directory Traversal Flaw Lets Remote SSH Servers Overwrite Files in Certain Cases
+| [1011143] OpenSSH Default Configuration May Be Unsafe When Used With Anonymous SSH Services
+| [1007791] Portable OpenSSH PAM free() Bug May Let Remote Users Execute Root Code
+| [1007716] OpenSSH buffer_append_space() and Other Buffer Management Errors May Let Remote Users Execute Arbitrary Code
+| [1006926] OpenSSH Host Access Restrictions Can Be Bypassed By Remote Users
+| [1006688] OpenSSH Timing Flaw With Pluggable Authentication Modules Can Disclose Valid User Account Names to Remote Users
+| [1004818] OpenSSH's Secure Shell (SSH) Implementation Weakness May Disclose User Passwords to Remote Users During Man-in-the-Middle Attacks
+| [1004616] OpenSSH Integer Overflow and Buffer Overflow May Allow Remote Users to Gain Root Access to the System
+| [1004391] OpenSSH 'BSD_AUTH' Access Control Bug May Allow Unauthorized Remote Users to Authenticated to the System
+| [1004115] OpenSSH Buffer Overflow in Kerberos Ticket and AFS Token Processing Lets Local Users Execute Arbitrary Code With Root Level Permissions
+| [1003758] OpenSSH Off-by-one 'Channels' Bug May Let Authorized Remote Users Execute Arbitrary Code with Root Privileges
+| [1002895] OpenSSH UseLogin Environment Variable Bug Lets Local Users Execute Commands and Gain Root Access
+| [1002748] OpenSSH 3.0 Denial of Service Condition May Allow Remote Users to Crash the sshd Daemon and KerberosV Configuration Error May Allow Remote Users to Partially Authenticate When Authentication Should Not Be Permitted
+| [1002734] OpenSSH's S/Key Implementation Information Disclosure Flaw Provides Remote Users With Information About Valid User Accounts
+| [1002455] OpenSSH May Fail to Properly Restrict IP Addresses in Certain Configurations
+| [1002432] OpenSSH's Sftp-server Subsystem Lets Authorized Remote Users with Restricted Keypairs Obtain Additional Access on the Server
+| [1001683] OpenSSH Allows Authorized Users to Delete Other User Files Named Cookies
+| 
+| OSVDB - http://www.osvdb.org:
+| [92034] GSI-OpenSSH auth-pam.c Memory Management Authentication Bypass
+| [90474] Red Hat / Fedora PAM Module for OpenSSH Incorrect error() Function Calling Local Privilege Escalation
+| [90007] OpenSSH logingracetime / maxstartup Threshold Connection Saturation Remote DoS
+| [81500] OpenSSH gss-serv.c ssh_gssapi_parse_ename Function Field Length Value Parsing Remote DoS
+| [78706] OpenSSH auth-options.c sshd auth_parse_options Function authorized_keys Command Option Debug Message Information Disclosure
+| [75753] OpenSSH PAM Module Aborted Conversation Local Information Disclosure
+| [75249] OpenSSH sftp-glob.c remote_glob Function Glob Expression Parsing Remote DoS
+| [75248] OpenSSH sftp.c process_put Function Glob Expression Parsing Remote DoS
+| [72183] Portable OpenSSH ssh-keysign ssh-rand-helper Utility File Descriptor Leak Local Information Disclosure
+| [70873] OpenSSH Legacy Certificates Stack Memory Disclosure
+| [69658] OpenSSH J-PAKE Public Parameter Validation Shared Secret Authentication Bypass
+| [67743] Novell NetWare OpenSSH SSHD.NLM Absolute Path Handling Remote Overflow
+| [59353] OpenSSH sshd Local TCP Redirection Connection Masking Weakness
+| [58495] OpenSSH sshd ChrootDirectory Feature SetUID Hard Link Local Privilege Escalation
+| [56921] OpenSSH Unspecified Remote Compromise
+| [53021] OpenSSH on ftp.openbsd.org Trojaned Distribution
+| [50036] OpenSSH CBC Mode Chosen Ciphertext 32-bit Chunk Plaintext Context Disclosure
+| [49386] OpenSSH sshd TCP Connection State Remote Account Enumeration
+| [48791] OpenSSH on Debian sshd Crafted Username Arbitrary Remote SELinux Role Access
+| [47635] OpenSSH Packages on Red Hat Enterprise Linux Compromised Distribution
+| [47227] OpenSSH X11UseLocalhost X11 Forwarding Port Hijacking
+| [45873] Cisco WebNS SSHield w/ OpenSSH Crafted Large Packet Remote DoS
+| [43911] OpenSSH ~/.ssh/rc ForceCommand Bypass Arbitrary Command Execution
+| [43745] OpenSSH X11 Forwarding Local Session Hijacking
+| [43371] OpenSSH Trusted X11 Cookie Connection Policy Bypass
+| [39214] OpenSSH linux_audit_record_event Crafted Username Audit Log Injection
+| [37315] pam_usb OpenSSH Authentication Unspecified Issue
+| [34850] OpenSSH on Mac OS X Key Generation Remote Connection DoS
+| [34601] OPIE w/ OpenSSH Account Enumeration
+| [34600] OpenSSH S/KEY Authentication Account Enumeration
+| [32721] OpenSSH Username Password Complexity Account Enumeration
+| [30232] OpenSSH Privilege Separation Monitor Weakness
+| [29494] OpenSSH packet.c Invalid Protocol Sequence Remote DoS
+| [29266] OpenSSH GSSAPI Authentication Abort Username Enumeration
+| [29264] OpenSSH Signal Handler Pre-authentication Race Condition Code Execution
+| [29152] OpenSSH Identical Block Packet DoS
+| [27745] Apple Mac OS X OpenSSH Nonexistent Account Login Enumeration DoS
+| [23797] OpenSSH with OpenPAM Connection Saturation Forked Process Saturation DoS
+| [22692] OpenSSH scp Command Line Filename Processing Command Injection
+| [20216] OpenSSH with KerberosV Remote Authentication Bypass
+| [19142] OpenSSH Multiple X11 Channel Forwarding Leaks
+| [19141] OpenSSH GSSAPIAuthentication Credential Escalation
+| [18236] OpenSSH no pty Command Execution Local PAM Restriction Bypass
+| [16567] OpenSSH Privilege Separation LoginGraceTime DoS
+| [16039] Solaris 108994 Series Patch OpenSSH LDAP Client Authentication DoS
+| [9562] OpenSSH Default Configuration Anon SSH Service Port Bounce Weakness
+| [9550] OpenSSH scp Traversal Arbitrary File Overwrite
+| [6601] OpenSSH *realloc() Unspecified Memory Errors
+| [6245] OpenSSH SKEY/BSD_AUTH Challenge-Response Remote Overflow
+| [6073] OpenSSH on FreeBSD libutil Arbitrary File Read
+| [6072] OpenSSH PAM Conversation Function Stack Modification
+| [6071] OpenSSH SSHv1 PAM Challenge-Response Authentication Privilege Escalation
+| [5536] OpenSSH sftp-server Restricted Keypair Restriction Bypass
+| [5408] OpenSSH echo simulation Information Disclosure
+| [5113] OpenSSH NIS YP Netgroups Authentication Bypass
+| [4536] OpenSSH Portable AIX linker Privilege Escalation
+| [3938] OpenSSL and OpenSSH /dev/random Check Failure
+| [3456] OpenSSH buffer_append_space() Heap Corruption
+| [2557] OpenSSH Multiple Buffer Management Multiple Overflows
+| [2140] OpenSSH w/ PAM Username Validity Timing Attack
+| [2112] OpenSSH Reverse DNS Lookup Bypass
+| [2109] OpenSSH sshd Root Login Timing Side-Channel Weakness
+| [1853] OpenSSH Symbolic Link 'cookies' File Removal
+| [839] OpenSSH PAMAuthenticationViaKbdInt Challenge-Response Remote Overflow
+| [781] OpenSSH Kerberos TGT/AFS Token Passing Remote Overflow
+| [730] OpenSSH Channel Code Off by One Remote Privilege Escalation
+| [688] OpenSSH UseLogin Environment Variable Local Command Execution
+| [642] OpenSSH Multiple Key Type ACL Bypass
+| [504] OpenSSH SSHv2 Public Key Authentication Bypass
+| [341] OpenSSH UseLogin Local Privilege Escalation
+|_
+4443/tcp closed pharos
+5800/tcp closed vnc-http
+5900/tcp open   vnc      VNC (protocol 3.8)
+| vulscan: VulDB - https://vuldb.com:
+| [154302] LibVNCServer up to 0.9.12 libvncclient/cursor.c HandleCursorShape memory corruption
+| [150938] QEMU 4.1.0 ui/vnc-enc-zrle.c zrle_compress_data denial of service
+| [147729] TigerVNC up to 1.10.0 readSetCursor memory corruption
+| [147728] TigerVNC up to 1.10.0 decodeRect memory corruption
+| [147727] TigerVNC up to 1.10.0 FilterGradient memory corruption
+| [147726] TigerVNC up to 1.10.0 CopyRectDecoder memory corruption
+| [147725] TigerVNC up to 1.10.0 ZRLEDecoder Variable Stack-based memory corruption
+| [144448] TightVNC 1.3.10 HandleCoRREBBP memory corruption
+| [144421] TurboVNC Stack-based memory corruption
+| [144420] LibVNC VNC Server Memory Leak information disclosure
+| [144419] TightVNC 1.3.10 HandleZlibBPP denial of service
+| [144418] TightVNC 1.3.10 InitialiseRFBConnection memory corruption
+| [144417] TightVNC 1.3.10 rfbServerCutText memory corruption
+| [143831] ThinVNC 1.0b1 directory traversal
+| [142265] noVNC up to 0.6.1 Web Page cross site scripting
+| [139656] Cisco Enterprise NFV Infrastructure Software VNC Console Request weak authentication
+| [131523] UltraVNC up to 1.2.2.3 VNC Client Out-of-Bounds memory corruption
+| [131522] UltraVNC up to 1.2.2.3 VNC Server Memory Leak memory corruption
+| [131521] UltraVNC up to 1.2.2.3 VNC Server Request Stack-based memory corruption
+| [131520] UltraVNC up to 1.2.2.3 VNC Server memory corruption
+| [131519] UltraVNC up to 1.2.2.3 VNC Server Heap-based memory corruption
+| [131518] UltraVNC up to 1.2.2.3 VNC Server Request Heap-based memory corruption
+| [131517] UltraVNC up to 1.2.2.3 VNC Server Off-By-One memory corruption
+| [131516] UltraVNC up to 1.2.2.3 VNC Server Heap-based memory corruption
+| [131515] UltraVNC up to 1.2.2.3 VNC Client Out-of-Bounds denial of service
+| [131514] UltraVNC up to 1.2.2.3 VNC Client Stack-based denial of service
+| [131513] UltraVNC up to 1.2.2.3 VNC Client ReadString memory corruption
+| [131512] UltraVNC up to 1.2.2.3 VNC Client Out-of-Bounds denial of service
+| [131511] UltraVNC up to 1.2.2.3 VNC Client Mode Copybuffer memory corruption
+| [131510] UltraVNC up to 1.2.2.3 VNC Client Mode Out-of-Bounds memory corruption
+| [131509] UltraVNC up to 1.2.2.3 VNC Client Ultra2 Decoder Out-of-Bounds memory corruption
+| [131361] UltraVNC Revision 1203 Client RAW Decoder Out-of-Bounds memory corruption
+| [131360] UltraVNC Revision 1203 Client Ultra Decoder Heap-based memory corruption
+| [131359] UltraVNC Revision 1199 Client CoRRE Decoder Out-of-Bounds memory corruption
+| [131358] UltraVNC Revision 1199 Client RRE Decoder Out-of-Bounds memory corruption
+| [131357] UltraVNC Revision 1198 Client Memory Leak memory corruption
+| [131356] UltraVNC Revision 1198 Client Heap-based memory corruption
+| [131316] UltraVNC Revision 1198 Client Underflow memory corruption
+| [130339] LibVNCServer up to 0.9.12 libvncserver/rfbserver.c memory corruption
+| [130338] LibVNCServer up to 0.9.11 libvncserver/rfbserver.c memory corruption
+| [130337] LibVNC up to 0.9.11 libvncclient/rfbproto.c memory corruption
+| [128136] LibVNC File Transfer Extension Use-After-Free memory corruption
+| [128124] LibVNC Client NULL Pointer Dereference denial of service
+| [128123] LibVNC Client Stack-based memory corruption
+| [128122] LibVNC Client Stack-based memory corruption
+| [128121] LibVNC Client Loop denial of service
+| [128120] LibVNC Heap-based memory corruption
+| [128119] LibVNC Heap-based memory corruption
+| [128104] LibVNC File Transfer Extension Heap-based memory corruption
+| [128103] LibVNC File Transfer Extension Use-After-Free memory corruption
+| [127891] Siemens SINUMERIK 828D/SINUMERIK 840D sl VNC Server denial of service
+| [114676] VMware Workstation/Fusion VNC Session denial of service
+| [113608] Datto ALTO/SIRIS VNC Default Credentials weak authentication
+| [113597] LinuxVNC/VNCommand up to 0.9.10 VNConsole.c vcSetXCutTextProc() memory corruption
+| [113596] LibVNCServer up to 0.9.11 rfbserver.c rfbProcessClientNormalMessage() Message memory corruption
+| [111544] QEMU up to 2.14.2 VNC Server Memory Exhaustion denial of service
+| [110937] VMware ESXi/Workstation/Fusion VNC Session Stack-based memory corruption
+| [110935] VMware ESXi/Workstation/Fusion VNC Session Heap-based memory corruption
+| [103607] gtk-vnc up to 0.4.2 Framebuffer memory corruption
+| [99587] QEMU VNC Display Driver ui/vnc.c SetPixelFormat Message denial of service
+| [99158] TigerVNC 1.7.1 CConnection.cxx CConnection::CConnection denial of service
+| [99157] TigerVNC 1.7.1 SMsgReader.cxx readClientCutText) denial of service
+| [99156] TigerVNC 1.7.1 SSecurityPlain.cxx processMsg) Long Username denial of service
+| [99155] TigerVNC 1.7.1 VNCSConnectionST.cxx VNCSConnectionST::fence) memory corruption
+| [99154] TigerVNC 1.7.1 SSecurityVeNCrypt.cxx SSecurityVeNCrypt) denial of service
+| [97353] gtk-vnc up to 0.6.x Integer memory corruption
+| [97352] gtk-vnc up to 0.6.x Tile Integer memory corruption
+| [97350] TigerVNC up to 1.7.0 RRE Message fillRect memory corruption
+| [97347] TigerVNC up to 1.7 Xvnc Server Crash denial of service
+| [94798] LibVNCServer up to 0.9.10 LibVNCClient ultra.c FramebufferUpdate Message memory corruption
+| [94797] LibVNCServer up to 0.9.10 LibVNCClient rfbproto.c FramebufferUpdate Message memory corruption
+| [94478] TigerVNC XRegion NULL Pointer Dereference denial of service
+| [90948] UltraVNC Repeater Open Redirect
+| [74757] noVNC up to 0.4 Secure Flag Cookie weak encryption
+| [73231] LibVNCServer up to 0.9.9 rfbProcessClientNormalMessage denial of service
+| [73230] LibVNCServer up to 0.9.9 HandleRFBServerMessage memory corruption
+| [72083] TigerVNC 0.0.90/0.0.91/1.0.0/1.0.1/1.1.0 Integer memory corruption
+| [71842] libvncserver 0.9.9 rfbProcessClientNormalMessage denial of service
+| [71696] LibVNCServer 0.9.9 rfbserver.c memory corruption
+| [71695] LibVNCServer 0.9.9 vncviewer.c MallocFrameBuffer memory corruption
+| [70249] VN-Calendar 1.0 vncal.js.php cross site scripting
+| [57534] TigerVNC 1.1 CSecurityTLS::processMsg spoofing
+| [50586] QEMU up to 0.10.6 vnc.c memory corruption
+| [46292] TightVnc 1.3.9 ClientConnection.cpp CheckBufferSize memory corruption
+| [45638] Kvm Qumranet KVM up to 79 vnc.c protocol_client_msg denial of service
+| [44947] UltraVNC 1.0.2/1.0.4 Stack-based memory corruption
+| [3856] RealVNC up to P4.4.2 Encoding Type CMsgReader::readRect memory corruption
+| [44555] Acresso FLEXnet Connect 6.1 ActiveX Control MSVNClientDownloadManager61Lib.DownloadManager.1 unknown vulnerability
+| [43725] EchoVNC 1.1.1 CLogger::WriteFormated memory corruption
+| [43558] RealVNC RealVNC Windows Client 4.1.2.0 vncviewer.exe denial of service
+| 
+| MITRE CVE - https://cve.mitre.org:
+| [CVE-2013-0335] OpenStack Compute (Nova) Grizzly, Folsom (2012.2), and Essex (2012.1) allows remote authenticated users to gain access to a VM in opportunistic circumstances by using the VNC token for a deleted VM that was bound to the same VNC port.
+| [CVE-2012-0681] Apple Remote Desktop before 3.6.1 does not recognize the "Encrypt all network data" setting during connections to third-party VNC servers, which allows remote attackers to obtain cleartext VNC session content by sniffing the network.
+| [CVE-2011-1775] The CSecurityTLS::processMsg function in common/rfb/CSecurityTLS.cxx in the vncviewer component in TigerVNC 1.1beta1 does not properly verify the server's X.509 certificate, which allows man-in-the-middle attackers to spoof a TLS VNC server via an arbitrary certificate.
+| [CVE-2011-0905] The rfbSendFramebufferUpdate function in server/libvncserver/rfbserver.c in vino-server in Vino 2.x before 2.28.3, 2.32.x before 2.32.2, 3.0.x before 3.0.2, and 3.1.x before 3.1.1, when tight encoding is used, allows remote authenticated users to cause a denial of service (daemon crash) via crafted dimensions in a framebuffer update request that triggers an out-of-bounds read operation.
+| [CVE-2011-0904] The rfbSendFramebufferUpdate function in server/libvncserver/rfbserver.c in vino-server in Vino 2.x before 2.28.3, 2.32.x before 2.32.2, 3.0.x before 3.0.2, and 3.1.x before 3.1.1, when raw encoding is used, allows remote authenticated users to cause a denial of service (daemon crash) via a large (1) X position or (2) Y position value in a framebuffer update request that triggers an out-of-bounds memory access, related to the rfbTranslateNone and rfbSendRectEncodingRaw functions.
+| [CVE-2011-0011] qemu-kvm before 0.11.0 disables VNC authentication when the password is cleared, which allows remote attackers to bypass authentication and establish VNC sessions.
+| [CVE-2010-5248] Untrusted search path vulnerability in UltraVNC 1.0.8.2 allows local users to gain privileges via a Trojan horse vnclang.dll file in the current working directory, as demonstrated by a directory that contains a .vnc file.  NOTE: some of these details are obtained from third party information.
+| [CVE-2009-4211] The U.S. Defense Information Systems Agency (DISA) Security Readiness Review (SRR) script for the Solaris x86 platform executes files in arbitrary directories as root for filenames equal to (1) java, (2) openssl, (3) php, (4) snort, (5) tshark, (6) vncserver, or (7) wireshark, which allows local users to gain privileges via a Trojan horse program.
+| [CVE-2009-3616] Multiple use-after-free vulnerabilities in vnc.c in the VNC server in QEMU 0.10.6 and earlier might allow guest OS users to execute arbitrary code on the host OS by establishing a connection from a VNC client and then (1) disconnecting during data transfer, (2) sending a message using incorrect integer data types, or (3) using the Fuzzy Screen Mode protocol, related to double free vulnerabilities.
+| [CVE-2009-2839] Screen Sharing in Apple Mac OS X 10.5.8 allows remote VNC servers to execute arbitrary code or cause a denial of service (memory corruption and application crash) via unspecified vectors.
+| [CVE-2009-0388] Multiple integer signedness errors in (1) UltraVNC 1.0.2 and 1.0.5 and (2) TightVnc 1.3.9 allow remote VNC servers to cause a denial of service (heap corruption and application crash) or possibly execute arbitrary code via a large length value in a message, related to the (a) ClientConnection::CheckBufferSize and (b) ClientConnection::CheckFileZipBufferSize functions in ClientConnection.cpp.
+| [CVE-2008-5714] Off-by-one error in monitor.c in Qemu 0.9.1 might make it easier for remote attackers to guess the VNC password, which is limited to seven characters where eight was intended.
+| [CVE-2008-5660] Format string vulnerability in the vinagre_utils_show_error function (src/vinagre-utils.c) in Vinagre 0.5.x before 0.5.2 and 2.x before 2.24.2 might allow remote attackers to execute arbitrary code via format string specifiers in a crafted URI or VNC server response.
+| [CVE-2008-5001] Multiple stack-based buffer overflows in multiple functions in vncviewer/FileTransfer.cpp in vncviewer for UltraVNC 1.0.2 and 1.0.4 before 01252008, when in LISTENING mode or when using the DSM plugin, allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via unspecified parameters, a different issue than CVE-2008-0610.
+| [CVE-2008-4770] The CMsgReader::readRect function in the VNC Viewer component in RealVNC VNC Free Edition 4.0 through 4.1.2, Enterprise Edition E4.0 through E4.4.2, and Personal Edition P4.0 through P4.4.2 allows remote VNC servers to execute arbitrary code via crafted RFB protocol data, related to "encoding type."
+| [CVE-2008-4587] Insecure method vulnerability in the MSVNClientDownloadManager61Lib.DownloadManager.1 ActiveX control (ISDM.exe 6.1.100.61372) in Macrovision FLEXnet Connect 6.1 allows remote attackers to force the download and execution of arbitrary files via the AddFile and RunScheduledJobs methods.  NOTE: this could be leveraged for code execution by uploading executable files to Startup folders.
+| [CVE-2008-4539] Heap-based buffer overflow in the Cirrus VGA implementation in (1) KVM before kvm-82 and (2) QEMU on Debian GNU/Linux and Ubuntu might allow local users to gain privileges by using the VNC console for a connection, aka the LGD-54XX "bitblt" heap overflow.  NOTE: this issue exists because of an incorrect fix for CVE-2007-1320.
+| [CVE-2008-3705] Stack-based buffer overflow in the CLogger::WriteFormated function in echoware/Logger.cpp in EchoVNC Linux before 1.1.2 allows remote echoServers to execute arbitrary code via a large (1) group or (2) user list, aka a "very crowded echoServer" attack.  NOTE: some of these details are obtained from third party information.
+| [CVE-2008-3617] Remote Management and Screen Sharing in Apple Mac OS X 10.5 through 10.5.4, when used to set a password for a VNC viewer, displays additional input characters beyond the maximum password length, which might make it easier for attackers to guess passwords that the user believed were longer.
+| [CVE-2008-3493] vncviewer.exe in RealVNC Windows Client 4.1.2.0 allows remote VNC servers to cause a denial of service (application crash) via a crafted frame buffer update packet.
+| [CVE-2008-2382] The protocol_client_msg function in vnc.c in the VNC server in (1) Qemu 0.9.1 and earlier and (2) KVM kvm-79 and earlier allows remote attackers to cause a denial of service (infinite loop) via a certain message.
+| [CVE-2008-0610] Stack-based buffer overflow in the ClientConnection::NegotiateProtocolVersion function in vncviewer/ClientConnection.cpp in vncviewer for UltraVNC 1.0.2 and 1.0.4 before 01252008, when in LISTENING mode or when using the DSM plugin, allows remote attackers to execute arbitrary code or cause a denial of service (crash) via a modified size value.
+| [CVE-2007-3536] Multiple buffer overflows in the AMX NetLinx VNC (AmxVnc) ActiveX control in AmxVnc.dll 1.0.13.0 allow remote attackers to execute arbitrary code via long (1) Host, (2) Password, or (3) LogFile property values.
+| [CVE-2007-2526] Heap-based buffer overflow in the ConnectAsyncEx function in VNC Viewer ActiveX control (scvncctrl.dll) in the SmartCode VNC Manager 3.6 allows remote attackers to execute arbitrary code via a long argument.
+| [CVE-2007-0998] The VNC server implementation in QEMU, as used by Xen and possibly other environments, allows local users of a guest operating system to read arbitrary files on the host operating system via unspecified vectors related to QEMU monitor mode, as demonstrated by mapping files to a CDROM device.  NOTE: some of these details are obtained from third party information.
+| [CVE-2007-0756] Chicken of the VNC (cotv) 2.0 allows remote attackers to cause a denial of service (application crash) via a large computer-name size value in a ServerInit packet, which triggers a failed malloc and a resulting NULL dereference.
+| [CVE-2006-4309] VNC server on the AK-Systems Windows Terminal 1.2.5 ExVLP is not password protected, which allows remote attackers to login and view RDP or Citrix sessions.
+| [CVE-2006-2450] auth.c in LibVNCServer 0.7.1 allows remote attackers to bypass authentication via a request in which the client specifies an insecure security type such as "Type 1 - None", which is accepted even if it is not offered by the server, a different issue than CVE-2006-2369.
+| [CVE-2006-2369] RealVNC 4.1.1, and other products that use RealVNC such as AdderLink IP and Cisco CallManager, allows remote attackers to bypass authentication via a request in which the client specifies an insecure security type such as "Type 1 - None", which is accepted even if it is not offered by the server, as originally demonstrated using a long password.
+| [CVE-2006-2206] The MS-Logon authentication scheme in UltraVNC (aka Ultr@VNC) 1.0.1 uses weak encryption (XOR) for challenge/response, which allows remote attackers to gain privileges by sniffing and decrypting passwords.
+| [CVE-2006-1652] Multiple buffer overflows in (a) UltraVNC (aka Ultr@VNC) 1.0.1 and earlier and (b) tabbed_viewer 1.29 (1) allow user-assisted remote attackers to execute arbitrary code via a malicious server that sends a long string to a client that connects on TCP port 5900, which triggers an overflow in Log::ReallyPrint
+| [CVE-2004-1750] RealVNC 4.0 and earlier allows remote attackers to cause a denial of service (crash) via a large number of connections to port 5900.
+| [CVE-2003-0406] PalmVNC 1.40 and earlier stores passwords in plaintext in the PalmVNCDB, which is backed up to PCs that the Palm is synchronized with, which could allow attackers to gain privileges.
+| [CVE-2002-2088] The MOSIX Project clump/os 5.4 creates a default VNC account without a password, which allows remote attackers to gain root access.
+| [CVE-2002-1848] TightVNC before 1.2.4 running on Windows stores unencrypted passwords in the password text control of the WinVNC Properties dialog, which could allow local users to access passwords.
+| [CVE-2002-1511] The vncserver wrapper for vnc before 3.3.3r2-21 uses the rand() function instead of srand(), which causes vncserver to generate weak cookies.
+| [CVE-2002-1336] TightVNC before 1.2.6 generates the same challenge string for multiple connections, which allows remote attackers to bypass VNC authentication by sniffing the challenge and response of other users.
+| [CVE-2002-0994] SunPCi II VNC uses a weak authentication scheme, which allows remote attackers to obtain the VNC password by sniffing the random byte challenge, which is used as the key for encrypted communications.
+| [CVE-2002-0971] Vulnerability in VNC, TightVNC, and TridiaVNC allows local users to execute arbitrary code as LocalSystem by using the Win32 Messaging System to bypass the VNC GUI and access the "Add new clients" dialogue box.
+| [CVE-2001-1422] WinVNC 3.3.3 and earlier generates the same challenge string for multiple connections, which allows remote attackers to bypass VNC authentication by sniffing the challenge and response of other users.
+| [CVE-2001-0168] Buffer overflow in AT&T WinVNC (Virtual Network Computing) server 3.3.3r7 and earlier allows remote attackers to execute arbitrary commands via a long HTTP GET request when the DebugLevel registry key is greater than 0.
+| [CVE-2001-0167] Buffer overflow in AT&T WinVNC (Virtual Network Computing) client 3.3.3r7 and earlier allows remote attackers to execute arbitrary commands via a long rfbConnFailed packet with a long reason string.
+| [CVE-2000-1164] WinVNC installs the WinVNC3 registry key with permissions that give Special Access (read and modify) to the Everybody group, which allows users to read and modify sensitive information such as passwords and gain access to the system.
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| [103107] libVNCserver 'rfbserver.c' Integer Overflow Vulnerability
+| [97305] TigerVNC Multiple Security Vulnerabilities
+| [96016] gtk-vnc Remote Code Execution Vulnerability and Multiple Integer Overflow Vulnerabilities
+| [96012] TigerVNC CVE-2016-10207 Denial of Service Vulnerability
+| [95789] TigerVNC CVE-2017-5581 Buffer Overflow Vulnerability
+| [95170] LibVNCServer Multiple Heap Based Buffer Overflow Vulnerabilities
+| [92348] UltraVNC CVE-2016-5673 Security Bypass Vulnerability
+| [78708] QEMU 'ui/vnc.c' Denial of Service Vulnerability
+| [76623] LibVNCServer 'tight.c' Use After Free Memory Corruption Vulnerability
+| [76620] QEMU 'vnc.c' Denial of Service Vulnerability
+| [72636] noVNC 'include/webutil.js' Session Hijacking Vulnerability
+| [70391] TigerVNC Screen Size Handling Integer Overflow Vulnerability
+| [70390] TigerVNC NULL Pointer Dereference Denial of Service Vulnerability
+| [70182] OpenStack Nova VMware driver 'get_vnc_port()' Function Race Condition Vulnerability
+| [70096] LibVNCServer CVE-2014-6055 Multiple Stack Based Buffer Overflow Vulnerabilities
+| [70094] LibVNCServer CVE-2014-6054 Denial of Service Vulnerability
+| [70093] libVNCserver CVE-2014-6051 Integer Overflow Vulnerability
+| [70092] LibVNCServer CVE-2014-6053 Remote Denial of Service Vulnerability
+| [70091] LibVNCServer CVE-2014-6052 Denial of Service Vulnerability
+| [66313] TigerVNC CVE-2014-0011 Heap Buffer Overflow Vulnerability
+| [64560] RealVNC VNC CVE-2013-6886 Multiple Local Privilege Escalation Vulnerabilities
+| [63284] Apple Remote Desktop VNC Username Handling Format String Vulnerability
+| [62443] GNOME Vino VNC Server CVE-2013-5745 Denial of Service Vulnerability
+| [61545] EchoVNC Denial of Service Vulnerability
+| [47748] virt-v2v Disabled Target VNC Password Security Bypass Vulnerability
+| [47738] TigerVNC SSL Certificate Validation Security Bypass Vulnerability
+| [47258] ConsoleKit VNC Session Policy Restriction Security Bypass Vulnerability
+| [45743] QEMU KVM VNC Password Security Bypass Vulnerability
+| [42846] UltraVNC DLL Loading Arbitrary Code Execution Vulnerability
+| [42463] SmartCode ServerX VNC Server ActiveX 'scvncsrvx.dll' Multiple Denial of Service Vulnerabilities
+| [39895] RealVNC 4.1.3 'ClientCutText' Message Remote Denial of Service Vulnerability
+| [36716] QEMU VNC Client Disconnect Use After Free Remote Code Execution Vulnerability
+| [33568] Multiple VNC Clients Multiple Integer Overflow Vulnerabilities
+| [33263] RealVNC 4.1.2 'vncviewer.exe' RFB Protocol Remote Code Execution Vulnerability
+| [33020] QEMU VNC 'monitor.c' Insecure Password Vulnerability
+| [32910] QEMU and KVM VNC Server Remote Denial of Service Vulnerability
+| [31832] RealVNC 4.1.2 'CMsgReader::readRect()' Remote Code Execution Vulnerability
+| [30722] EchoVNC Remote Buffer Overflow Vulnerability
+| [30499] RealVNC 4.1.2 'vncviewer.exe' Remote Denial of Service Vulnerability
+| [27687] UltraVNC VNCViewer 'FileTransfer.cpp' Multiple Remote Buffer Overflow Vulnerabilities
+| [27561] UltraVNC VNCViewer 'ClientConnection.cpp' Remote Buffer Overflow Vulnerability
+| [24703] AMX AMXVNC.DLL ActiveX Control Multiple Buffer Overflow Vulnerabilities
+| [23869] SmartCode VNC Manager ActiveX Control Scvncctrl.DLL Denial of Service Vulnerability
+| [22967] Xen QEMU VNC Server Arbitrary Information Disclosure Vulnerability
+| [22372] Chicken of the VNC Remote Denial of Service Vulnerability
+| [19599] RealVNC Clipboard Update Integer Overflow Vulnerability
+| [18977] LibVNCServer Remote Authentication Bypass Vulnerability
+| [17978] RealVNC Remote Authentication Bypass Vulnerability
+| [17824] UltraVNC Weak Challenge-Response Authentication Vulnerability
+| [17378] UltraVNC Multiple Remote Error Logging Buffer Overflow Vulnerabilities
+| [13995] RealVNC Server Remote Information Disclosure Vulnerability
+| [12068] LibVNCServer Multiple Unspecified Vulnerabilities
+| [11048] RealVNC Server Remote Denial of Service Vulnerability
+| [9440] Ultr@VNC ShellExecute() Local Privilege Escalation Vulnerability
+| [8347] TightVNC Win32 Server QueryAllowNoPass Access Control Bypass Vulnerability
+| [7696] PalmVNC Insecure Password Storage Vulnerability
+| [6905] TightVNC Server Authentication Cookie Predictability Vulnerability
+| [5530] Multiple VNC Products For Windows Win32 Messaging API Vulnerability
+| [5296] TightVNC Repeated Challenge Replay Attack Vulnerability
+| [5146] Sun SunPCi II VNC Software Password Disclosure Vulnerability
+| [4839] TightVNC Listening Viewer Multiple Non-Shared Connections DoS Vulnerability
+| [4835] TightVNC Plain Text Password Storage Vulnerability
+| [4581] Mosix ClumpOS Blank Default VNC Password Vulnerability
+| [4345] VNC HTTP Server Denial Of Service Vulnerability
+| [2306] AT&T WinVNC Server Buffer Overflow Vulnerability
+| [2305] AT&T WinVNC Client Buffer Overflow Vulnerability
+| [2275] AT&T VNC Weak Authentication Vulnerability
+| [1961] AT&T WinVNC Remote Desktop Default Configuration Vulnerability
+| [854] VNC Server Weak Password Encryption Vulnerability
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| [86113] EchoVNC Viewer denial of service
+| [82445] OpenStack Compute VNC security bypass
+| [78325] Xen VNC privilege escalation
+| [70290] ThinVNC Pro requests security bypass
+| [67311] TigerVNC SSL security bypass
+| [66778] ConsoleKit VNC security bypass
+| [65215] QEMU VNC password security bypass
+| [63811] UltraVNC dynamic-linked library (DLL) code execution
+| [62203] SmartCode ServerX VNC Server ActiveX control denial of service
+| [58308] RealVNC ClientCutText denial of service
+| [53962] QEMU vnc.c code execution
+| [48466] Multiple VNC client ClientConnection.cpp buffer overflow
+| [47937] RealVNC RFB protocol code execution
+| [45969] RealVNC VNC Viewer CMsgReader::readRect() code execution
+| [45174] Apple Mac OS X VNC viewer weak security
+| [44501] EchoVNC for Linux CLogger::WriteFormated() buffer overflow
+| [44218] RealVNC vncviewer.exe denial of service
+| [40372] UltraVnc vncviewer FileTransfer.cpp buffer overflow
+| [40165] UltraVnc vncviewer ClientConnection::NegotiateProtocolVersion function buffer overflow
+| [35155] AMX NetLinx ActiveX control (AmxVnc.dll) Host, Password, and LogFile buffer overflow
+| [34149] SmartCode VNC Manager scvncctrl.dll ActiveX control buffer overflow
+| [33085] Fedora Core Xen QEMU VNC information disclosure
+| [32166] Chicken of the VNC ServerInit packets denial of service
+| [28532] AK-Systems Windows Terminal unauthorized VNC access
+| [28515] RealVNC SMsgReader and CMsgReader denial of service
+| [27737] LibVNCServer authentication bypass
+| [26445] RealVNC authentication bypass
+| [26283] Ultr@VNC MS-Logon weak encryption
+| [25650] UltraVNC VNCLog::ReallyPrint() buffer overflow
+| [25648] Ultr@VNC error buffer overflow
+| [22534] TightVNC plaintext password
+| [21053] RealVNC Null sessions information disclosure
+| [17123] RealVNC multiple connections allow denial of service
+| [14867] Ultr@VNC ShellExecute function allows elevated privileges
+| [12827] TightVNC security bypass
+| [12083] PalmVNC stores usernames and passwords in plain text
+| [11384] VNC rand() generates weak cookies
+| [9979] Multiple VNC products could allow an attacker to use the Win32 Messaging API to gain elevated privileges
+| [9476] SunPCi II VNC weak authentication mechanism
+| [8928] MOSIX clump/os blank VNC password
+| [6425] VNC connection attempt failed due to bad password
+| [6026] WinVNC DebugLevel &gt
+| [6025] WinVNC client rfbConnFailed reason string buffer overflow
+| [5992] VNC weak authentication could allow unauthorized access
+| [5545] WinVNC may allow remote attacker to modify registry information to permit unauthorized access
+| [1988] VNC No Authentication Required
+| [1986] VNC server detected without password
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| [28338] Vino VNC Server 3.7.3 - Persistent Denial of Service
+| [27569] UltraVNC 1.0.1 - Multiple Remote Error Logging Buffer Overflow Vulnerabilities (2)
+| [27568] UltraVNC 1.0.1 - Multiple Remote Error Logging Buffer Overflow Vulnerabilities (1)
+| [27292] EchoVNC Viewer Remote DoS Vulnerability
+| [24412] RealVNC Server 4.0 - Remote Denial of Service Vulnerability
+| [21592] Sun SunPCi II VNC Software 2.3 Password Disclosure Vulnerability
+| [18666] UltraVNC 1.0.2 Client (vncviewer.exe) Buffer Overflow
+| [17719] RealVNC Authentication Bypass
+| [16491] WinVNC Web Server <= 3.3.3r7 - GET Overflow
+| [16490] UltraVNC 1.0.1 Client Buffer Overflow
+| [16489] RealVNC 3.3.7 Client Buffer Overflow
+| [14634] SmartCode ServerX VNC Server ActiveX 1.1.5.0 (scvncsrvx.dll) DoS Exploit
+| [8024] TightVNC Authentication Failure Integer Overflow PoC
+| [7990] UltraVNC/TightVNC Multiple VNC Clients Multiple Integer Overflow PoC
+| [7943] RealVNC 4.1.2 (vncviewer.exe) RFB Protocol Remote Code Execution PoC
+| [6181] RealVNC Windows Client 4.1.2 - Remote DoS Crash PoC
+| [4123] AMX Corp. VNC ActiveX Control (AmxVnc.dll 1.0.13.0) BoF Exploit
+| [3873] SmartCode VNC Manager 3.6 (scvncctrl.dll) Denial of Service Exploit
+| [3257] Chicken of the VNC 2.0 (NULL-pointer) Remote Denial of Service Exploit
+| [1799] RealVNC 4.1.0 - 4.1.1 (VNC Null Authentication) Vulnerability Scanners
+| [1794] RealVNC 4.1.0 - 4.1.1 (Null Authentication) Auth Bypass Exploit (meta)
+| [1791] RealVNC 4.1.0 - 4.1.1 - VNC Null Authentication - Auth Bypass Patch (EXE)
+| [1664] Ultr@VNC <= 1.0.1 client Log::ReallyPrint Buffer Overflow Exploit
+| [1643] Ultr@VNC <= 1.0.1 client Log::ReallyPrint Buffer Overflow PoC
+| [1642] Ultr@VNC <= 1.0.1 VNCLog::ReallyPrint Remote Buffer Overflow PoC
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| [900475] TightVNC ClientConnection Multiple Integer Overflow Vulnerabilities (Linux)
+| [900474] TightVNC Version Detection (Linux)
+| [900473] TightVNC ClientConnection Multiple Integer Overflow Vulnerabilities (Win)
+| [900472] TightVNC Version Detection (Win)
+| [900471] UltraVNC ClientConnection Multiple Integer Overflow Vulnerabilities (Win)
+| [900470] UltraVNC Version Detection (Win)
+| [900163] RealVNC VNC Viewer Remote Code Execution Vulnerability (Linux)
+| [900162] RealVNC VNC Viewer Remote Code Execution Vulnerability (Win)
+| [900019] RealVNC vncviewer.exe Remote DoS Vulnerability (Win)
+| [880800] CentOS Update for vnc CESA-2009:0261 centos3 i386
+| [880784] CentOS Update for vnc CESA-2009:0261 centos4 i386
+| [870660] RedHat Update for tigervnc RHSA-2011:0871-01
+| [864736] Fedora Update for libguac-client-vnc FEDORA-2012-14097
+| [864735] Fedora Update for libguac-client-vnc FEDORA-2012-14179
+| [830338] Mandriva Update for tightvnc MDKSA-2007:080-1 (tightvnc)
+| [830327] Mandriva Update for tightvnc MDKSA-2007:080 (tightvnc)
+| [801898] TigerVNC SSL Certificate Validation Security Bypass Vulnerability (Windows)
+| [801897] TigerVNC Version Detection (Windows)
+| [800131] UltraVNC VNCViewer Multiple Buffer Overflow Vulnerabilities - Nov08
+| [100622] RealVNC 4.1.3 'ClientCutText' Message Remote Denial of Service Vulnerability
+| [65482] SLES9: Security update for XFree86-Xvnc
+| [65233] SLES9: Security update for XFree86-Xvnc
+| [63548] Gentoo Security Advisory GLSA 200903-17 (vnc)
+| [63365] CentOS Security Advisory CESA-2009:0261 (vnc)
+| [63303] Debian Security Advisory DSA 1716-1 (vnc4)
+| [63289] Fedora Core 9 FEDORA-2009-1001 (vnc)
+| [63288] Fedora Core 10 FEDORA-2009-0991 (vnc)
+| [58260] Gentoo Security Advisory GLSA 200705-10 (tightvnc, libxfont)
+| [57862] Gentoo Security Advisory GLSA 200608-12 (x11vnc)
+| [57855] Gentoo Security Advisory GLSA 200608-05 (libvncserver)
+| [57253] FreeBSD Ports: x11vnc
+| [56775] FreeBSD Ports: vnc
+| [19289] UltraVNC w/ DSM plugin detection
+| [19288] VNC security types
+| [10758] Check for VNC HTTP
+| [10342] Check for VNC
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| [1021713] (Red Hat Issues Fix) VNC Input Validation Flaw in CMsgReader::readRect() Lets Remote Users Execute Arbitrary Code
+| [1021489] KVM VNC Server Bug in protocol_client_msg() Lets Remote Users Deny Service
+| [1021488] Qemu VNC Server Bug in protocol_client_msg() Lets Remote Users Deny Service
+| [1020882] Mac OS X System Preferences VNC Password Display May Mislead Users About the Maximum Password Length
+| [1019293] UltraVNC vncviewer Stack Overflow Lets Remote Users Execute Arbitrary Code
+| [1016083] RealVNC May Let Remote Users Connect Without Authenticating
+| [1014237] RealVNC Null Sessions Disclose System Information to Remote Users
+| [1011072] RealVNC VNC Server Can Be Crashed By Remote Users
+| [1008754] Ultr@VNC ShellExecute() Lets Local Users Run Shell Commands With SYSTEM Privileges
+| [1007417] TightVNC 'QueryAllowNoPass' Flaw May Let Remote Users Access the System
+| [1006855] PalmVNC Discloses VNC Server Usernames and Passwords to Local Users
+| [1004698] Sun Virtual Network Computing Software (SUNWspvnc) for Sun's PCi Card Discloses the VNC Password to Remote Users, Offering System Access to Remote Users
+| [1004373] TightVNC Virtual Network Computing Software May Disclose Passwords to Local Users and May Allow Remote Users to Crash the Server
+| 
+| OSVDB - http://www.osvdb.org:
+| [96141] EchoVNC Viewer Crafted Request Large Size Value Handling Allocation Failure DoS Weakness
+| [94635] Apache Maven SCM SvnCommandlineUtils Process Listing Local Password Disclosure
+| [92746] Citrix CloudPlatform Management Network VNC Port Access Restriction Bypass
+| [90657] OpenStack Compute (Nova) VNC Proxy VM Deletion Handling Console Token Reuse
+| [85203] Xen VNC Graphical Display Key Sequence Handling Local Privilege Escalation
+| [84848] Apple Remote Desktop Third-Party VNC Server Data Encryption Weakness Information Disclosure
+| [77558] virt-v2v Guest Conversion VNC Password Local Authentication Bypass
+| [76014] ThinVNC Pro /ft/ URL Request Parsing Authentication Bypass Arbitrary File Access
+| [74646] ConsoleKit VNC Session is-local Property Handling Remote Privilege Escalation
+| [74333] Vino server/libvncserver/rfbserver.c rfbSendFramebufferUpdate() Function Tight Encoding Framebuffer Update Request Parsing Remote DoS
+| [74332] Vino server/libvncserver/rfbserver.c rfbSendFramebufferUpdate() Function Raw Encoding Framebuffer Update Request Parsing Remote DoS
+| [73119] TigerVNC CSecurityTLS::processMsg Function common/rfb/CSecurityTLS.cxx X.509 Certificate MiTM Account Credentials Disclosure
+| [70992] QEMU Empty VNC Password Authentication Bypass
+| [67707] UltraVNC Viewer Path Subversion Arbitrary DLL Injection Code Execution
+| [59997] Apple Mac OS X Screen Sharing Remote VNC Server Unspecified Arbitrary Code Execution
+| [59287] VNC Server in QEMU vnc.c Use-after-free Fuzzy Screen Mode Protocol Arbitrary Code Execution
+| [59286] VNC Server in QEMU vnc.c Use-after-free Invalid Message Data Type Arbitrary Code Execution
+| [59285] VNC Server in QEMU vnc.c Use-after-free Data Transfer Disconnection Arbitrary Code Execution
+| [55423] TightVNC ClientConnection.cpp Multiple Function Integer Signedness Error Remote Code Execution
+| [55422] UltraVNC ClientConnection.cpp Multiple Function Integer Signedness Error Remote Code Execution
+| [52913] KVM kvm-79 VNC Server vnc.c protocol_client_msg Function Crafted Message Remote DoS
+| [52912] QEMU VNC Server vnc.c protocol_client_msg Function Crafted Message Remote DoS
+| [51033] Qemu monitor.c Off-by-one VNC Password Weakness
+| [50520] Vinagre src/vinagre-utils.c vinagre_utils_show_error() Function Crafted VNC File handling Format String
+| [50050] RealVNC VNC Viewer common/rfb/CMsgReader.cxx CMsgReader::readRect() Function Message Handling Arbitrary Code Execution
+| [48235] Apple Mac OS X Remote Management and Screen Sharing VNC Viewer Password Length Viewing Weakness
+| [47540] EchoVNC for Linux echoware/Logger.cpp CLogger::WriteFormated Function Remote Overflow
+| [47447] RealVNC Windows Client vncviewer.exe Crafted Frame Buffer Update Packet Handling DoS
+| [45281] TightVNC WinVNC Properties Dialog Plaintext Password Disclosure
+| [42841] UltraVNC vncviewer/FileTransfer.cpp vncviewer Multiple Overflows
+| [42840] UltraVNC vncviewer/ClientConnection.cpp ClientConnection::NegotiateProtocolVersion() vncviewer Remote Overflow
+| [41874] Macrovision FLEXnet Connect MSVNClientDownloadManager61Lib.DownloadManager ActiveX (ISDM.exe) Multiple Method Arbitrary File Download
+| [41277] Ultr@VNC MS-Logon Authentication Scheme Encryption Weakness
+| [37672] AMX NetLinx VNC (AmxVnc) ActiveX (AmxVnc.dll) Multiple Property Overflows
+| [34340] SmartCode VNC Manager VNC Viewer ActiveX (scvncctrl.dll) Overflow
+| [34304] QEMU VNC Server Monitor Mode Unspecified Host OS Arbitrary File Disclosure
+| [33637] Chicken of the VNC ServerInit Packet computer-name Size Overflow DoS
+| [29782] RealVNC Client/Server Integer Mismatch DoS
+| [29514] AK-Systems Windows Terminal VNC Server Default Null Password
+| [27137] LibVNCServer Insecure Security Type Request Authentication Bypass
+| [25479] RealVNC Security Type Enforcement Failure Remote Authentication Bypass
+| [24456] Ultr@VNC Log::ReallyPrint Function Remote Overflow
+| [22197] WinVNC Multiple Connection Persistent Challenge String Authentication Bypass
+| [19473] MOSIX Project clump/os Default VNC Password
+| [17436] RealVNC NULL Session Information Disclosure
+| [11574] RealVNC Multiple Port Connection Saturation DoS
+| [9187] RealVNC Server Connection Saturation DoS
+| [6279] SunPCi II VNC Cleartext Password Disclosure
+| [6278] VNC Weak Authentication Cookie
+| [6277] TightVNC / TridiaVNC Win32 Messaging System Command Execution
+| [6276] TightVNC Challenge String Re-use Weakness
+| [4852] PalmVNC Cleartext Password Exposure
+| [3619] Ultr@VNC IEXPLORE.EXE Privilege Escalation
+| [2369] TightVNC QueryAllowNoPass Unspecified Authentication Bypass
+| [452] WinVNC Registry Key Permission Weakness Local Privilege Escalation
+|_
+8081/tcp open   http     nginx 1.14.0 (Ubuntu)
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+| vulscan: VulDB - https://vuldb.com:
+| [126525] nginx up to 1.14.0/1.15.5 ngx_http_mp4_module Loop denial of service
+| [126524] nginx up to 1.14.0/1.15.5 HTTP2 CPU Exhaustion denial of service
+| [126523] nginx up to 1.14.0/1.15.5 HTTP2 Memory Consumption denial of service
+| 
+| MITRE CVE - https://cve.mitre.org:
+| [CVE-2013-2070] http/modules/ngx_http_proxy_module.c in nginx 1.1.4 through 1.2.8 and 1.3.0 through 1.4.0, when proxy_pass is used with untrusted HTTP servers, allows remote attackers to cause a denial of service (crash) and obtain sensitive information from worker process memory via a crafted proxy response, a similar vulnerability to CVE-2013-2028.
+| [CVE-2012-2089] Buffer overflow in ngx_http_mp4_module.c in the ngx_http_mp4_module module in nginx 1.0.7 through 1.0.14 and 1.1.3 through 1.1.18, when the mp4 directive is used, allows remote attackers to cause a denial of service (memory overwrite) or possibly execute arbitrary code via a crafted MP4 file.
+| [CVE-2012-1180] Use-after-free vulnerability in nginx before 1.0.14 and 1.1.x before 1.1.17 allows remote HTTP servers to obtain sensitive information from process memory via a crafted backend response, in conjunction with a client request.
+| [CVE-2013-2028] The ngx_http_parse_chunked function in http/ngx_http_parse.c in nginx 1.3.9 through 1.4.0 allows remote attackers to cause a denial of service (crash) and execute arbitrary code via a chunked Transfer-Encoding request with a large chunk size, which triggers an integer signedness error and a stack-based buffer overflow.
+| [CVE-2011-4963] nginx/Windows 1.3.x before 1.3.1 and 1.2.x before 1.2.1 allows remote attackers to bypass intended access restrictions and access restricted files via (1) a trailing . (dot) or (2) certain "$index_allocation" sequences in a request.
+| [CVE-2011-4315] Heap-based buffer overflow in compression-pointer processing in core/ngx_resolver.c in nginx before 1.0.10 allows remote resolvers to cause a denial of service (daemon crash) or possibly have unspecified other impact via a long response.
+| 
+| SecurityFocus - https://www.securityfocus.com/bid/:
+| [99534] Nginx CVE-2017-7529 Remote Integer Overflow Vulnerability
+| [93903] Nginx CVE-2016-1247 Remote Privilege Escalation Vulnerability
+| [91819] Nginx CVE-2016-1000105 Security Bypass Vulnerability
+| [90967] nginx CVE-2016-4450 Denial of Service Vulnerability
+| [82230] nginx Multiple Denial of Service Vulnerabilities
+| [78928] Nginx CVE-2010-2266 Denial-Of-Service Vulnerability
+| [70025] nginx CVE-2014-3616 SSL Session Fixation Vulnerability
+| [69111] nginx SMTP Proxy Remote Command Injection Vulnerability
+| [67507] nginx SPDY Implementation CVE-2014-0088 Arbitrary Code Execution Vulnerability
+| [66537] nginx SPDY Implementation Heap Based Buffer Overflow Vulnerability
+| [63814] nginx CVE-2013-4547 URI Processing Security Bypass Vulnerability
+| [59824] Nginx CVE-2013-2070 Remote Security Vulnerability
+| [59699] nginx 'ngx_http_parse.c' Stack Buffer Overflow Vulnerability
+| [59496] nginx 'ngx_http_close_connection()' Remote Integer Overflow Vulnerability
+| [59323] nginx NULL-Byte Arbitrary Code Execution Vulnerability
+| [58105] Nginx 'access.log' Insecure File Permissions Vulnerability
+| [57139] nginx CVE-2011-4968 Man in The Middle Vulnerability
+| [55920] nginx CVE-2011-4963 Security Bypass Vulnerability
+| [54331] Nginx Naxsi Module 'nx_extract.py' Script Remote File Disclosure Vulnerability
+| [52999] nginx 'ngx_http_mp4_module.c' Buffer Overflow Vulnerability
+| [52578] nginx 'ngx_cpystrn()' Information Disclosure Vulnerability
+| [50710] nginx DNS Resolver Remote Heap Buffer Overflow Vulnerability
+| [40760] nginx Remote Source Code Disclosure and Denial of Service Vulnerabilities
+| [40434] nginx Space String Remote Source Code Disclosure Vulnerability
+| [40420] nginx Directory Traversal Vulnerability
+| [37711] nginx Terminal Escape Sequence in Logs Command Injection Vulnerability
+| [36839] nginx 'ngx_http_process_request_headers()' Remote Buffer Overflow Vulnerability
+| [36490] nginx WebDAV Multiple Directory Traversal Vulnerabilities
+| [36438] nginx Proxy DNS Cache Domain Spoofing Vulnerability
+| [36384] nginx HTTP Request Remote Buffer Overflow Vulnerability
+| 
+| IBM X-Force - https://exchange.xforce.ibmcloud.com:
+| [84623] Phusion Passenger gem for Ruby with nginx configuration insecure permissions
+| [84172] nginx denial of service
+| [84048] nginx buffer overflow
+| [83923] nginx ngx_http_close_connection() integer overflow
+| [83688] nginx null byte code execution
+| [83103] Naxsi module for Nginx naxsi_unescape_uri() function security bypass
+| [82319] nginx access.log information disclosure
+| [80952] nginx SSL spoofing
+| [77244] nginx and Microsoft Windows request security bypass
+| [76778] Naxsi module for Nginx nx_extract.py directory traversal
+| [74831] nginx ngx_http_mp4_module.c buffer overflow
+| [74191] nginx ngx_cpystrn() information disclosure
+| [74045] nginx header response information disclosure
+| [71355] nginx ngx_resolver_copy() buffer overflow
+| [59370] nginx characters denial of service
+| [59369] nginx DATA source code disclosure
+| [59047] nginx space source code disclosure
+| [58966] nginx unspecified directory traversal
+| [54025] nginx ngx_http_parse.c denial of service
+| [53431] nginx WebDAV component directory traversal
+| [53328] Nginx CRC-32 cached domain name spoofing
+| [53250] Nginx ngx_http_parse_complex_uri() function code execution
+| 
+| Exploit-DB - https://www.exploit-db.com:
+| [26737] nginx 1.3.9/1.4.0 x86 Brute Force Remote Exploit
+| [25775] Nginx HTTP Server 1.3.9-1.4.0 Chuncked Encoding Stack Buffer Overflow
+| [25499] nginx 1.3.9-1.4.0 DoS PoC
+| 
+| OpenVAS (Nessus) - http://www.openvas.org:
+| [66451] Fedora Core 11 FEDORA-2009-12782 (nginx)
+| [66450] Fedora Core 10 FEDORA-2009-12775 (nginx)
+| [66449] Fedora Core 12 FEDORA-2009-12750 (nginx)
+| [64912] Fedora Core 10 FEDORA-2009-9652 (nginx)
+| [64911] Fedora Core 11 FEDORA-2009-9630 (nginx)
+| [64869] Debian Security Advisory DSA 1884-1 (nginx)
+| 
+| SecurityTracker - https://www.securitytracker.com:
+| [1028544] nginx Bug Lets Remote Users Deny Service or Obtain Potentially Sensitive Information
+| [1028519] nginx Stack Overflow Lets Remote Users Execute Arbitrary Code
+| [1026924] nginx Buffer Overflow in ngx_http_mp4_module Lets Remote Users Execute Arbitrary Code
+| [1026827] nginx HTTP Response Processing Lets Remote Users Obtain Portions of Memory Contents
+| 
+| OSVDB - http://www.osvdb.org:
+| [94864] cPnginx Plugin for cPanel nginx Configuration Manipulation Arbitrary File Access
+| [93282] nginx proxy_pass Crafted Upstream Proxied Server Response Handling Worker Process Memory Disclosure
+| [93037] nginx /http/ngx_http_parse.c Worker Process Crafted Request Handling Remote Overflow
+| [92796] nginx ngx_http_close_connection Function Crafted r-&gt
+| [92634] nginx ngx_http_request.h zero_in_uri URL Null Byte Handling Remote Code Execution
+| [90518] nginx Log Directory Permission Weakness Local Information Disclosure
+| [88910] nginx Proxy Functionality SSL Certificate Validation MitM Spoofing Weakness
+| [84339] nginx/Windows Multiple Request Sequence Parsing Arbitrary File Access
+| [83617] Naxsi Module for Nginx naxsi-ui/ nx_extract.py Traversal Arbitrary File Access
+| [81339] nginx ngx_http_mp4_module Module Atom MP4 File Handling Remote Overflow
+| [80124] nginx HTTP Header Response Parsing Freed Memory Information Disclosure
+| [77184] nginx ngx_resolver.c ngx_resolver_copy() Function DNS Response Parsing Remote Overflow
+| [65531] nginx on Windows URI ::$DATA Append Arbitrary File Access
+| [65530] nginx Encoded Traversal Sequence Memory Corruption Remote DoS
+| [65294] nginx on Windows Encoded Space Request Remote Source Disclosure
+| [63136] nginx on Windows 8.3 Filename Alias Request Access Rules / Authentication Bypass
+| [62617] nginx Internal DNS Cache Poisoning Weakness
+| [61779] nginx HTTP Request Escape Sequence Terminal Command Injection
+| [59278] nginx src/http/ngx_http_parse.c ngx_http_process_request_headers() Function URL Handling NULL Dereference DoS
+| [58328] nginx WebDAV Multiple Method Traversal Arbitrary File Write
+| [58128] nginx ngx_http_parse_complex_uri() Function Underflow
+| [44447] nginx (engine x) msie_refresh Directive Unspecified XSS
+| [44446] nginx (engine x) ssl_verify_client Directive HTTP/0.9 Protocol Bypass
+| [44445] nginx (engine x) ngx_http_realip_module satisfy_any Directive Unspecified Access Bypass
+| [44444] nginx (engine x) X-Accel-Redirect Header Unspecified Traversal
+| [44443] nginx (engine x) rtsig Method Signal Queue Overflow
+| [44442] nginx (engine x) Worker Process Millisecond Timers Unspecified Overflow
+|_
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port23-TCP:V=7.91%I=7%D=12/2%Time=5FC7E98D%P=x86_64-pc-linux-gnu%r(NULL
+SF:,1C,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20")%r(GenericLines,45,"Debi
+SF:an\x20GNU/Linux\x207\r\r\nLogin:\x20\xff\xfb\x01Password:\x20\r\r\ninva
+SF:lid\x20login\r\r\nPassword:")%r(tn3270,2B,"Debian\x20GNU/Linux\x207\r\r
+SF:\nLogin:\x20\xff\xfe\x18\xff\xfe\x19\xff\xfc\x19\xff\xfe\0\xff\xfc\0")%
+SF:r(GetRequest,45,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20\xff\xfb\x01Pa
+SF:ssword:\x20\r\r\ninvalid\x20login\r\r\nPassword:")%r(HTTPOptions,45,"De
+SF:bian\x20GNU/Linux\x207\r\r\nLogin:\x20\xff\xfb\x01Password:\x20\r\r\nin
+SF:valid\x20login\r\r\nPassword:")%r(RTSPRequest,45,"Debian\x20GNU/Linux\x
+SF:207\r\r\nLogin:\x20\xff\xfb\x01Password:\x20\r\r\ninvalid\x20login\r\r\
+SF:nPassword:")%r(RPCCheck,1C,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20")%
+SF:r(DNSVersionBindReqTCP,1C,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20")%r
+SF:(DNSStatusRequestTCP,1C,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20")%r(H
+SF:elp,29,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20\xff\xfb\x01Password:\x
+SF:20")%r(SSLSessionReq,29,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20\xff\x
+SF:fb\x01Password:\x20")%r(TerminalServerCookie,29,"Debian\x20GNU/Linux\x2
+SF:07\r\r\nLogin:\x20\xff\xfb\x01Password:\x20")%r(Kerberos,29,"Debian\x20
+SF:GNU/Linux\x207\r\r\nLogin:\x20\xff\xfb\x01Password:\x20")%r(SMBProgNeg,
+SF:1C,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20")%r(X11Probe,1C,"Debian\x2
+SF:0GNU/Linux\x207\r\r\nLogin:\x20")%r(FourOhFourRequest,45,"Debian\x20GNU
+SF:/Linux\x207\r\r\nLogin:\x20\xff\xfb\x01Password:\x20\r\r\ninvalid\x20lo
+SF:gin\r\r\nPassword:")%r(LPDString,29,"Debian\x20GNU/Linux\x207\r\r\nLogi
+SF:n:\x20\xff\xfb\x01Password:\x20")%r(LDAPSearchReq,45,"Debian\x20GNU/Lin
+SF:ux\x207\r\r\nLogin:\x20\xff\xfb\x01Password:\x20\r\r\ninvalid\x20login\
+SF:r\r\nPassword:")%r(LDAPBindReq,1C,"Debian\x20GNU/Linux\x207\r\r\nLogin:
+SF:\x20")%r(SIPOptions,141,"Debian\x20GNU/Linux\x207\r\r\nLogin:\x20\xff\x
+SF:fb\x01Password:\x20\r\r\ninvalid\x20login\r\r\nPassword:\r\r\ninvalid\x
+SF:20login\r\r\nPassword:\r\r\ninvalid\x20login\r\r\nPassword:\r\r\ninvali
+SF:d\x20login\r\r\nPassword:\r\r\ninvalid\x20login\r\r\nPassword:\r\r\ninv
+SF:alid\x20login\r\r\nPassword:\r\r\ninvalid\x20login\r\r\nPassword:\r\r\n
+SF:invalid\x20login\r\r\nPassword:\r\r\ninvalid\x20login\r\r\nPassword:\r\
+SF:r\ninvalid\x20login\r\r\nPassword:");
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 195.41 seconds
